@@ -1,8 +1,14 @@
 import { NavContent } from "./NavContent";
 import ProfileDropdown from "./ProfileDropdown";
 import { IoIosNotificationsOutline } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = ({ bgColor, textColor }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/");
+  };
   return (
     <div
       className="fixed top-0 left-0 right-0 z-50"
@@ -19,18 +25,19 @@ export const Navbar = ({ bgColor, textColor }) => {
               BuildINT
             </span>
             <img
-              src="src/assets/img/logo2_transparent.png"
+              src="src/assets/img/navbar/logo2_transparent.png"
               className="w-6 h-6 2xl:w-9 2xl:h-9 mt-1"
               alt="logo"
             />
           </div>
         </div>
         <div className="flex items-center gap-4 px-5">
-          <IoIosNotificationsOutline
-            size={25}
-            style={{ color: textColor }}
+          <IoIosNotificationsOutline size={25} style={{ color: textColor }} className="cursor-pointer" />
+          <ProfileDropdown
+            bgColor={bgColor}
+            textColor={textColor}
+            handleLogout={handleLogout}
           />
-          <ProfileDropdown bgColor={bgColor} textColor={textColor} />
         </div>
       </nav>
     </div>

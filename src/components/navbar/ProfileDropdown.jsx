@@ -6,7 +6,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 
-const ProfileDropdown = ({ bgColor, textColor }) => {
+const ProfileDropdown = ({ bgColor, textColor, handleLogout }) => {
   const [isOpen, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -17,17 +17,17 @@ const ProfileDropdown = ({ bgColor, textColor }) => {
   const dropDown = [
     {
       label: "Settings",
-      href: "#",
+      action: () => setOpen(flase),
       Icon: IoSettingsOutline,
     },
     {
       label: "Help",
-      href: "#",
+      action: () => setOpen(flase),
       Icon: IoIosHelpCircleOutline,
     },
     {
       label: "Logout",
-      href: "#",
+      action: handleLogout,
       Icon: IoLogOutOutline,
     },
   ];
@@ -35,19 +35,25 @@ const ProfileDropdown = ({ bgColor, textColor }) => {
   return (
     <div ref={ref} className="relative">
       <div
-        className="flex items-center gap-3 cursor-pointer 2xl:gap-8"
+        className="flex items-center gap-3 cursor-pointer 2xl:gap-8 md:gap-4"
         onClick={() => setOpen((prev) => !prev)}
       >
         <CgProfile size={25} style={{ color: textColor }} />
         <div>
-          <div className="font-bold 2xl:text-lg" style={{ color: textColor }}>
+          <div
+            className="font-bold 2xl:text-xl md:text-sm hidden 2xl:block lg:block md:block"
+            style={{ color: textColor }}
+          >
             User Name
           </div>
-          <div className="text-sm 2xl:text-base" style={{ color: textColor }}>
+          <div
+            className="text-sm 2xl:text-lg md:text-xs hidden 2xl:block lg:block md:block"
+            style={{ color: textColor }}
+          >
             User Role
           </div>
         </div>
-        <RiArrowDropDownLine size={20} style={{ color: textColor }} />
+        <RiArrowDropDownLine size={20} style={{ color: textColor }} className="hidden 2xl:block lg:block md:block"/>
       </div>
       <AnimatePresence>
         {isOpen && (
@@ -56,10 +62,10 @@ const ProfileDropdown = ({ bgColor, textColor }) => {
             animate={{ y: "0%", opacity: 1 }}
             exit={{ y: "-10%", opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 mt-2  w-48 bg-white shadow-lg z-50 2xl:w-64"
+            className="absolute right-0 mt-2  w-48 bg-white shadow-lg z-50 2xl:w-80 md:w-40"
             style={{ backgroundColor: bgColor }}
           >
-            <ul className="grid gap-1">
+            <ul className="grid gap-1 2xl:gap-3 md:gap-0.5">
               {dropDown.map((item, idx) => {
                 const { Icon } = item;
 
@@ -77,13 +83,15 @@ const ProfileDropdown = ({ bgColor, textColor }) => {
                     className="w-full p-[0.08rem] shadow-4xl border-b border-b-white/20 2xl:border-b-2"
                   >
                     <a
-                      onClick={() => setOpen((prev) => !prev)}
-                      className="flex items-center justify-start w-full p-3 gap-3 "
-                      href={item.href}
+                      onClick={() => {
+                        setOpen(false);
+                        item.action();
+                      }}
+                      className="flex items-center justify-start w-full p-3 gap-3"
                     >
                       <Icon style={{ color: textColor }} />
                       <span
-                        className="flex gap-1 text-base 2xl:text-lg"
+                        className="flex gap-1 text-base 2xl:text-xl md:text-sm"
                         style={{ color: textColor }}
                       >
                         {item.label}

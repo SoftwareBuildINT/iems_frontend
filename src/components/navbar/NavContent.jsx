@@ -2,7 +2,7 @@ import { useClickAway } from "react-use";
 import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Squash as Hamburger } from "hamburger-react";
-import { routes } from "../routes";
+import { routes } from "../../routes";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
 export const NavContent = ({ bgColor, textColor }) => {
@@ -21,7 +21,12 @@ export const NavContent = ({ bgColor, textColor }) => {
 
   return (
     <div ref={ref}>
-      <Hamburger toggled={isOpen} size={20} toggle={setOpen} color={textColor}  />
+      <Hamburger
+        toggled={isOpen}
+        size={20}
+        toggle={setOpen}
+        color={textColor}
+      />
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -29,7 +34,7 @@ export const NavContent = ({ bgColor, textColor }) => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.2 }}
-            className="fixed top-0 left-0 bottom-0 w-4/5 2xl:w-1/4 lg:w-1/5 md:w-2/5 sm:w-3/5 min-w-[300px] shadow-4xl p-5 mt-[64px] z-50"
+            className="fixed top-0 left-0 bottom-0 w-4/5 2xl:w-1/4 lg:w-1/5 md:w-1/5 sm:w-3/5 min-w-[300px] shadow-4xl p-5 mt-[64px] z-50"
             style={{ backgroundColor: bgColor }}
           >
             <ul className="grid gap-1">
@@ -61,14 +66,23 @@ export const NavContent = ({ bgColor, textColor }) => {
                         href={subRoutes ? "#" : route.href}
                       >
                         <div className="flex items-center p-3 gap-3 justify-start">
-                          <Icon className="text-xl 2xl:text-2xl" style={{color:textColor}} />
-                          <span className="flex gap-1 text-base 2xl:text-2xl" style={{color:textColor}}>
+                          <Icon
+                            className="text-sm 2xl:text-2xl md:text-base lg:text-lg sm:text-xs"
+                            style={{ color: textColor }}
+                          />
+                          <span
+                            className="flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs"
+                            style={{ color: textColor }}
+                          >
                             {route.title}
                           </span>
                         </div>
                         <div>
                           {subRoutes && (
-                            <RiArrowDropDownLine className="text-2xl 2xl:text-3xl" style={{color:textColor}}/>
+                            <RiArrowDropDownLine
+                              className="text-base 2xl:text-3xl"
+                              style={{ color: textColor }}
+                            />
                           )}
                         </div>
                       </a>
@@ -98,8 +112,8 @@ export const NavContent = ({ bgColor, textColor }) => {
                               className="flex items-center justify-start w-full p-3 gap-3 rounded-xl"
                               href={subRoute.href}
                             >
-                              <subRoute.Icon className="text-xl" />
-                              <span className="flex gap-1 text-base">
+                              <subRoute.Icon className="text-sm 2xl:text-2xl md:text-base lg:text-lg sm:text-xs" />
+                              <span className="flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs">
                                 {subRoute.title}
                               </span>
                             </a>
