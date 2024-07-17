@@ -10,9 +10,14 @@ export const Navbar = ({ bgColor, textColor }) => {
     >
       <nav className="flex items-center justify-between py-2">
         <div className="flex items-center space-x-3 pl-4">
-          <NavContent bgColor={bgColor} textColor={textColor}/>
+          <NavContent bgColor={bgColor} textColor={textColor} />
           <div className="logo font-bold text-2xl flex items-center space-x-2">
-            <span className="text-xl sm:text-2xl 2xl:text-3xl" style={{color:textColor}}>BuildINT</span>
+            <span
+              className="text-xl sm:text-2xl 2xl:text-3xl"
+              style={{ color: textColor }}
+            >
+              BuildINT
+            </span>
             <img
               src="src/assets/img/logo2_transparent.png"
               className="w-6 h-6 2xl:w-9 2xl:h-9 mt-1"
@@ -21,8 +26,11 @@ export const Navbar = ({ bgColor, textColor }) => {
           </div>
         </div>
         <div className="flex items-center gap-4 px-5">
-          <IoIosNotificationsOutline size={25} />
-          <ProfileDropdown  />
+          <IoIosNotificationsOutline
+            size={25}
+            style={{ color: textColor }}
+          />
+          <ProfileDropdown bgColor={bgColor} textColor={textColor} />
         </div>
       </nav>
     </div>

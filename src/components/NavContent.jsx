@@ -21,7 +21,7 @@ export const NavContent = ({ bgColor, textColor }) => {
 
   return (
     <div ref={ref}>
-      <Hamburger toggled={isOpen} size={20} toggle={setOpen} />
+      <Hamburger toggled={isOpen} size={20} toggle={setOpen} color={textColor}  />
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -29,7 +29,7 @@ export const NavContent = ({ bgColor, textColor }) => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.2 }}
-            className="fixed top-0 left-0 bottom-0 w-4/5 2xl:w-1/4 lg:w-1/5 md:w-2/5 sm:w-3/5 min-w-[300px] shadow-4xl p-5 mt-[64px] border-r border-r-white/20 z-50"
+            className="fixed top-0 left-0 bottom-0 w-4/5 2xl:w-1/4 lg:w-1/5 md:w-2/5 sm:w-3/5 min-w-[300px] shadow-4xl p-5 mt-[64px] z-50"
             style={{ backgroundColor: bgColor }}
           >
             <ul className="grid gap-1">
