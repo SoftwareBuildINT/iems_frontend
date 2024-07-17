@@ -1,49 +1,30 @@
-import React from "react";
+import { NavContent } from "./NavContent";
+import ProfileDropdown from "./ProfileDropdown";
+import { IoIosNotificationsOutline } from "react-icons/io";
 
-const Navbar = () => {
+export const Navbar = ({ bgColor, textColor }) => {
   return (
-    <nav className="bg-slate-800 text-white">
-      <div className="mycontainer flex justify-between items-center px-5 py-4 h-14">
-        <div className="logo font-bold text-2xl flex items-center">
-          <span>Build </span>
-          <span className="text-yellow-500">INT</span>
-          <img
-            src="src/assets/img/logo2_transparent.png"
-            className="w-8 h-8 ml-2"
-            alt="logo"
-          />
+    <div
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{ backgroundColor: bgColor }}
+    >
+      <nav className="flex items-center justify-between py-2">
+        <div className="flex items-center space-x-3 pl-4">
+          <NavContent bgColor={bgColor} textColor={textColor}/>
+          <div className="logo font-bold text-2xl flex items-center space-x-2">
+            <span className="text-xl sm:text-2xl 2xl:text-3xl" style={{color:textColor}}>BuildINT</span>
+            <img
+              src="src/assets/img/logo2_transparent.png"
+              className="w-6 h-6 2xl:w-9 2xl:h-9 mt-1"
+              alt="logo"
+            />
+          </div>
         </div>
-        <div className="flex items-center">
-          <ul className="flex gap-4 mr-6">
-            <li>
-              <a className="hover:font-bold" href="/">
-                Home
-              </a>
-            </li>
-            <li>
-              <a className="hover:font-bold" href="/">
-                About
-              </a>
-            </li>
-          </ul>
-          <a
-            href="https://github.com/saujeet"
-            target="_blank"
-            className="cursor-pointer flex items-center p-1 ring-white ring-1 rounded-full"
-          >
-            <span>
-              <img
-                className="mr-2 w-7"
-                src="/icons/github-mark-white.png"
-                alt="github_icon"
-              />
-            </span>
-            <span>GitHub</span>
-          </a>
+        <div className="flex items-center gap-4 px-5">
+          <IoIosNotificationsOutline size={25} />
+          <ProfileDropdown  />
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
-
-export default Navbar;
