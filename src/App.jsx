@@ -1,13 +1,19 @@
-import { Navbar } from "./components/Navbar";
-import Alert from "./components/Alert";
+import { Navbar } from "./components/navbar/Navbar";
+import Login from "./components/login/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
     <>
-      <Navbar bgColor="#0F172B" textColor="white" />
-      <div className="pl-24 pt-[50px] flex items-center gap-9"> 
-      </div>
-      <Alert />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={<Navbar bgColor="#0F172B" textColor="#ffffff" />}
+          />
+        </Routes>
+      </Router>
     </>
   );
 }
