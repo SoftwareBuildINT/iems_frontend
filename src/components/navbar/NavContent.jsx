@@ -6,7 +6,7 @@ import { routes } from "../../routes";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
 export const NavContent = ({ bgColor, textColor }) => {
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
   const ref = useRef(null);
 
@@ -59,7 +59,7 @@ export const NavContent = ({ bgColor, textColor }) => {
                           if (subRoutes) {
                             handleSubMenuToggle(idx);
                           } else {
-                            setOpen((prev) => !prev);
+                            setOpen((prev) => prev);
                           }
                         }}
                         className="flex items-center justify-between w-full rounded-xl"
@@ -108,7 +108,7 @@ export const NavContent = ({ bgColor, textColor }) => {
                             className="w-full p-[0.08rem] rounded-xl hover:bg-[#19223F]"
                           >
                             <a
-                              onClick={() => setOpen((prev) => !prev)}
+                              onClick={() => setOpen((prev) => prev)}
                               className="flex items-center justify-start w-full p-3 gap-3 rounded-xl"
                               href={subRoute.href}
                             >
