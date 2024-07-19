@@ -52,14 +52,14 @@ export const NavContent = ({ bgColor, textColor }) => {
                         damping: 20,
                         delay: 0.1 + idx / 10,
                       }}
-                      className="w-full p-[0.08rem] rounded-xl"
+                      className="w-full p-[0.08rem] rounded-xl hover:bg-[#19223F]"
                     >
                       <a
                         onClick={() => {
                           if (subRoutes) {
                             handleSubMenuToggle(idx);
                           } else {
-                            setOpen((prev) => !prev);
+                            setOpen((prev) => prev);
                           }
                         }}
                         className="flex items-center justify-between w-full rounded-xl"
@@ -71,7 +71,7 @@ export const NavContent = ({ bgColor, textColor }) => {
                             style={{ color: textColor }}
                           />
                           <span
-                            className="flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs"
+                            className="flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs "
                             style={{ color: textColor }}
                           >
                             {route.title}
@@ -105,10 +105,10 @@ export const NavContent = ({ bgColor, textColor }) => {
                               damping: 20,
                               delay: 0.1 + idx / 20,
                             }}
-                            className="w-full p-[0.08rem] rounded-xl"
+                            className="w-full p-[0.08rem] rounded-xl hover:bg-[#19223F]"
                           >
                             <a
-                              onClick={() => setOpen((prev) => !prev)}
+                              onClick={() => setOpen((prev) => prev)}
                               className="flex items-center justify-start w-full p-3 gap-3 rounded-xl"
                               href={subRoute.href}
                             >
