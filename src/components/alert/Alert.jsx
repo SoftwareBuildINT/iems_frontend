@@ -66,7 +66,7 @@ const DashboardCard = ({ label, value, icon, bgColor, bgicon }) => {
 const Alert = () => {
   return (
       <>
-        <div className="px-6 pt-[70px]">
+        <div className="px-6">
           <h1 className="my-3 text-2xl font-medium ">Alerts</h1>
             <div className="flex max-md:flex-wrap max-xl:flex-wrap">
               {data.map((item, index) => (

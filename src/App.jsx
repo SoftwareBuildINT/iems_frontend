@@ -2,9 +2,10 @@ import { Navbar } from "./components/navbar/Navbar";
 import Login from "./components/login/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Client from "./components/client/Client";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Clients from "./components/client/Client";
 import ClientDetails from "./components/client/ClientDetails";
+import Alert from "./components/alert/Alert";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
   const bgColor = "#0F172B";
@@ -26,6 +27,7 @@ export default function App() {
               element={<ClientDetails />}
             ></Route>
             <Route path="/create-client"></Route>
+            <Route path="/alert" element={<Alert />}></Route>
           </Route>
         </Routes>
         {/* <Routes>
