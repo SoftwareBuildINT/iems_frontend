@@ -4,9 +4,6 @@ import { IoFilter } from "react-icons/io5";
 
 const Clients = () => {
   const navigate = useNavigate();
-  const responsiveStyle = {
-    margin: "70px auto",
-  };
 
   const clients = [
     {
@@ -57,7 +54,7 @@ const Clients = () => {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start p-3 pt-4 pl-1 2xl:gap-2 2xl:pt-6" style={responsiveStyle}>
+    <div className="flex flex-col items-start justify-start p-3 pt-4 pl-1 2xl:gap-2 2xl:pt-6">
       <div className="flex justify-between w-full items-center pb-4 pr-3">
         <div>
           <h1 className="font-bold text-2xl pl-5 2xl:text-3xl">Client Management</h1>

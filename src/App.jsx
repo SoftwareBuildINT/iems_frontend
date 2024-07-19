@@ -14,6 +14,20 @@ export default function App() {
     <>
       <Router>
         <Routes>
+          <Route
+            path="/"
+            element={<Navbar bgColor={bgColor} textColor={textColor} />}
+          >
+            <Route index element={<Dashboard />}></Route>
+            <Route path="/client" element={<Client />}></Route>
+            <Route
+              path="/client-details/:clientId"
+              element={<ClientDetails />}
+            ></Route>
+            <Route path="/create-client"></Route>
+          </Route>
+        </Routes>
+        {/* <Routes>
           <Route path="/" element={<Login />} />
           <Route
             path="/dashboard"
@@ -42,7 +56,7 @@ export default function App() {
               </>
             }
           />
-        </Routes>
+        </Routes> */}
       </Router>
     </>
   );
