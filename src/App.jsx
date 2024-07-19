@@ -14,6 +14,7 @@ export default function App() {
     <>
       <Router>
         <Routes>
+          <Route path="/login" element={<Login />}></Route>
           <Route
             path="/"
             element={<Navbar bgColor={bgColor} textColor={textColor} />}

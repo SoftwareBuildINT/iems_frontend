@@ -11,7 +11,7 @@ export const Navbar = ({ bgColor, textColor }) => {
   };
 
   const handleLogout = () => {
-    navigate("/");
+    navigate("/login");
   };
   return (
     <>

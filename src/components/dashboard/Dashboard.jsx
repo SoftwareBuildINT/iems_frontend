@@ -55,7 +55,6 @@ const Dashboard = () => {
   return (
     <div
       className="flex flex-col items-start justify-start pt-4 pl-1 2xl:gap-2 2xl:pt-6"
-      // style={responsiveStyle}
     >
       <h1 className="font-bold text-2xl pb-2 pl-5 2xl:text-3xl select-none">Dashboard</h1>
       <div className="flex max-md:flex-wrap max-xl:flex-wrap justify-center 2xl:gap-5 pl-3">
@@ -63,7 +62,7 @@ const Dashboard = () => {
           const { Icon, bgColor } = card;
           return (
             <div className="pr-2 pl-2 pt-4 ">
-              <div className="bg-[#0F172B] h-34 w-60 p-5 md:h-36 md:w-44 lg:h-40 lg:w-60 xl:h-40 xl:w-[250px] 2xl:h-56 2xl:w-[470px]">
+              <div className="bg-[#0F172B] h-34 w-60 p-5 md:h-36 md:w-44 lg:h-40 lg:w-60 xl:h-40 xl:w-[250px] 2xl:h-56 2xl:w-[470px] rounded-lg">
                 <div className="pl-3">
                   <div
                     style={circleStyle}
