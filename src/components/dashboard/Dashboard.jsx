@@ -4,9 +4,6 @@ import { CiLocationOn } from "react-icons/ci";
 import { IoAlertCircleSharp } from "react-icons/io5";
 
 const Dashboard = () => {
-  const responsiveStyle = {
-    margin: "70px auto",
-  };
 
   const circleStyle = {
     display: "flex",
@@ -55,7 +52,6 @@ const Dashboard = () => {
   return (
     <div
       className="flex flex-col items-start justify-start pt-4 pl-1 2xl:gap-2 2xl:pt-6"
-      // style={responsiveStyle}
     >
       <h1 className="font-bold text-2xl pb-2 pl-5 2xl:text-3xl select-none">Dashboard</h1>
       <div className="flex max-md:flex-wrap max-xl:flex-wrap justify-center 2xl:gap-5 pl-3">

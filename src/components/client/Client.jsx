@@ -54,10 +54,10 @@ const Client = () => {
   };
 
   return (
-    <div className="flex flex-col items-start justify-start p-3 pt-4 pl-1 2xl:gap-2 2xl:pt-6" style={responsiveStyle}>
-      <div className="flex flex-col md:flex-row justify-between w-full items-center pb-4 pr-3 space-y-4 md:space-y-0">
+    <div className="flex flex-col items-start justify-start p-3 pt-4 pl-1 2xl:gap-2 2xl:pt-6">
+      <div className="select-none flex flex-col md:flex-row justify-between w-full pb-4 pr-3 space-y-4 md:space-y-0">
         <div>
-          <h1 className="font-bold text-xl md:text-2xl 2xl:text-3xl pl-3 md:pl-5">Client Management</h1>
+          <h1 className="font-bold text-xl md:text-2xl 2xl:text-3xl pl-3 mdl:pl-5">Client Management</h1>
           <h4 className="text-xs md:text-sm pl-3 md:pl-5">Client List /</h4>
         </div>
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-2 w-full md:w-auto px-3 md:px-0">
