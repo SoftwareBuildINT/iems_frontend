@@ -33,6 +33,15 @@ export default function App() {
               </>
             }
           />
+          <Route
+            path="/client-details/:clientId"
+            element={
+              <>
+                <Navbar bgColor={bgColor} textColor={textColor} />
+                <ClientDetails />
+              </>
+            }
+          />
         </Routes>
       </Router>
     </>
