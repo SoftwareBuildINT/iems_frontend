@@ -82,7 +82,7 @@ const ProfileDropdown = ({ bgColor, textColor, handleLogout }) => {
                     }}
                     className="w-full p-[0.08rem] shadow-4xl border-b border-b-white/20 2xl:border-b-2 hover:bg-[#19223F]"
                   >
-                    <a
+                    <button
                       onClick={() => {
                         setOpen(false);
                         item.action();
@@ -96,7 +96,7 @@ const ProfileDropdown = ({ bgColor, textColor, handleLogout }) => {
                       >
                         {item.label}
                       </span>
-                    </a>
+                    </button>
                   </motion.li>
                 );
               })}

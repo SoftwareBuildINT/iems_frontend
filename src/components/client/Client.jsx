@@ -2,7 +2,7 @@ import React from 'react';
 
 const ActiveSitesCard = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900">
+    <div className="flex items-center justify-center min-h-screen">
       <div className="flex items-center bg-gray-800 rounded-lg p-4 shadow-md text-white">
         <div className="flex items-center justify-center h-16 w-16 rounded-full bg-green-500">
           <svg className="h-8 w-8" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

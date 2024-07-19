@@ -4,11 +4,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Squash as Hamburger } from "hamburger-react";
 import { routes } from "../../routes";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const NavContent = ({ bgColor, textColor }) => {
   const [isOpen, setOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
   const ref = useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useClickAway(ref, () => {
     setOpen(false);
@@ -17,6 +20,13 @@ export const NavContent = ({ bgColor, textColor }) => {
 
   const handleSubMenuToggle = (idx) => {
     setOpenSubMenu((prev) => (prev === idx ? null : idx));
+  };
+
+  const handleNavigation = (href) => {
+    if (href !== "#") {
+      navigate(href);
+      setOpen(false);
+    }
   };
 
   return (
@@ -40,6 +50,7 @@ export const NavContent = ({ bgColor, textColor }) => {
             <ul className="grid gap-1">
               {routes.map((route, idx) => {
                 const { Icon, subRoutes } = route;
+                const isActive = location.pathname === route.href;
 
                 return (
                   <div key={route.title}>
@@ -52,27 +63,26 @@ export const NavContent = ({ bgColor, textColor }) => {
                         damping: 20,
                         delay: 0.1 + idx / 10,
                       }}
-                      className="w-full p-[0.08rem] rounded-xl hover:bg-[#19223F]"
+                      className={`w-full p-[0.08rem] rounded-xl hover:bg-[#19223F] ${isActive ? 'bg-[#19223F]' : ''}`}
                     >
-                      <a
+                      <button
                         onClick={() => {
                           if (subRoutes) {
                             handleSubMenuToggle(idx);
                           } else {
-                            setOpen((prev) => prev);
+                            handleNavigation(route.href);
                           }
                         }}
-                        className="flex items-center justify-between w-full rounded-xl"
-                        href={subRoutes ? "#" : route.href}
+                        className="flex items-center justify-between w-full rounded-xl p-3 bg-transparent border-none cursor-pointer"
                       >
-                        <div className="flex items-center p-3 gap-3 justify-start">
+                        <div className="flex items-center gap-3 justify-start">
                           <Icon
-                            className="text-sm 2xl:text-2xl md:text-base lg:text-lg sm:text-xs"
-                            style={{ color: textColor }}
+                            className={`text-sm 2xl:text-2xl md:text-base lg:text-lg sm:text-xs ${isActive ? 'text-[#E6FC5F]' : ''}`}
+                            style={{ color: !isActive ? textColor : '' }}
                           />
                           <span
-                            className="flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs "
-                            style={{ color: textColor }}
+                            className={`flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs ${isActive ? 'text-[#E6FC5F]' : ''}`}
+                            style={{ color: !isActive ? textColor : '' }}
                           >
                             {route.title}
                           </span>
@@ -85,7 +95,7 @@ export const NavContent = ({ bgColor, textColor }) => {
                             />
                           )}
                         </div>
-                      </a>
+                      </button>
                     </motion.li>
                     {subRoutes && openSubMenu === idx && (
                       <motion.ul
@@ -94,31 +104,34 @@ export const NavContent = ({ bgColor, textColor }) => {
                         transition={{ duration: 0.2 }}
                         className="pl-4"
                       >
-                        {subRoutes.map((subRoute) => (
-                          <motion.li
-                            key={subRoute.title}
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{
-                              type: "spring",
-                              stiffness: 260,
-                              damping: 20,
-                              delay: 0.1 + idx / 20,
-                            }}
-                            className="w-full p-[0.08rem] rounded-xl hover:bg-[#19223F]"
-                          >
-                            <a
-                              onClick={() => setOpen((prev) => prev)}
-                              className="flex items-center justify-start w-full p-3 gap-3 rounded-xl"
-                              href={subRoute.href}
+                        {subRoutes.map((subRoute) => {
+                          const isSubActive = location.pathname === subRoute.href;
+
+                          return (
+                            <motion.li
+                              key={subRoute.title}
+                              initial={{ scale: 0, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                                delay: 0.1 + idx / 20,
+                              }}
+                              className={`w-full p-[0.08rem] rounded-xl hover:bg-[#19223F] ${isSubActive ? 'bg-[#19223F]' : ''}`}
                             >
-                              <subRoute.Icon className="text-sm 2xl:text-2xl md:text-base lg:text-lg sm:text-xs" />
-                              <span className="flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs">
-                                {subRoute.title}
-                              </span>
-                            </a>
-                          </motion.li>
-                        ))}
+                              <button
+                                onClick={() => handleNavigation(subRoute.href)}
+                                className="flex items-center justify-start w-full p-3 gap-3 rounded-xl bg-transparent border-none cursor-pointer"
+                              >
+                                <subRoute.Icon className="text-sm 2xl:text-2xl md:text-base lg:text-lg sm:text-xs" />
+                                <span className="flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs" style={{ color: textColor }}>
+                                  {subRoute.title}
+                                </span>
+                              </button>
+                            </motion.li>
+                          );
+                        })}
                       </motion.ul>
                     )}
                   </div>
