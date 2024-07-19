@@ -2,8 +2,8 @@ import { Navbar } from "./components/navbar/Navbar";
 import Login from "./components/login/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Client from "./components/client/Client";
-import Clients from "./components/client/Client";
 import ClientDetails from "./components/client/ClientDetails";
+import CreateClient from "./components/client/CreateClient";
 import Alert from "./components/alert/Alert";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
