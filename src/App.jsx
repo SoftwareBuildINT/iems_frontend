@@ -27,6 +27,7 @@ export default function App() {
               element={<ClientDetails />}
             ></Route>
             <Route path="/create-client" element={<CreateClient />}></Route>
+            <Route path="/alert" element={<Alert />}></Route>
           </Route>
         </Routes>
         {/* <Routes>
