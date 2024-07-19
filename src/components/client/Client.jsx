@@ -4,9 +4,6 @@ import { IoFilter } from "react-icons/io5";
 
 const Client = () => {
   const navigate = useNavigate();
-  const responsiveStyle = {
-    margin: "70px auto",
-  };
 
   const clients = [
     {

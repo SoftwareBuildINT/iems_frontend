@@ -81,7 +81,7 @@ export const NavContent = ({ bgColor, textColor }) => {
                             style={{ color: !isActive ? textColor : '' }}
                           />
                           <span
-                            className={`flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs ${isActive ? 'text-[#E6FC5F]' : ''}`}
+                            className={`flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs ${isActive ? 'text-[#E6FC5F]' : ''} select-none`}
                             style={{ color: !isActive ? textColor : '' }}
                           >
                             {route.title}
@@ -124,8 +124,8 @@ export const NavContent = ({ bgColor, textColor }) => {
                                 onClick={() => handleNavigation(subRoute.href)}
                                 className="flex items-center justify-start w-full p-3 gap-3 rounded-xl bg-transparent border-none cursor-pointer"
                               >
-                                <subRoute.Icon className="text-sm 2xl:text-2xl md:text-base lg:text-lg sm:text-xs" />
-                                <span className="flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs" style={{ color: textColor }}>
+                                <subRoute.Icon className={`text-sm 2xl:text-2xl md:text-base lg:text-lg sm:text-xs ${isSubActive ? 'text-[#E6FC5F]' : ''} select-none`}/>
+                                <span className={`flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs ${isSubActive ? 'text-[#E6FC5F]' : ''} select-none`} style={{ color: textColor }}>
                                   {subRoute.title}
                                 </span>
                               </button>

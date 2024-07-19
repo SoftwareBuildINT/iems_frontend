@@ -55,9 +55,9 @@ const Dashboard = () => {
   return (
     <div
       className="flex flex-col items-start justify-start pt-4 pl-1 2xl:gap-2 2xl:pt-6"
-      style={responsiveStyle}
+      // style={responsiveStyle}
     >
-      <h1 className="font-bold text-2xl pb-2 pl-5 2xl:text-3xl">Dashboard</h1>
+      <h1 className="font-bold text-2xl pb-2 pl-5 2xl:text-3xl select-none">Dashboard</h1>
       <div className="flex max-md:flex-wrap max-xl:flex-wrap justify-center 2xl:gap-5 pl-3">
         {cards.map((card, idx) => {
           const { Icon, bgColor } = card;
@@ -70,16 +70,16 @@ const Dashboard = () => {
                     className={`${bgColor} w-8 h-8 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 2xl:w-16 2xl:h-16`}
                   >
                     {card.img ? (
-                      <img src={card.img} className="w-1/2 h-1/2 object-contain"></img>
+                      <img src={card.img} className="w-1/2 h-1/2 object-contain select-none"></img>
                     ) : (
-                      <Icon className="text-base md:text-lg lg:text-2xl xl:text-2xl 2xl:text-3xl" />
+                      <Icon className="w-1/2 h-1/2 object-contain" />
                     )}
                   </div>
                 </div>
-                <div className="pl-3 pt-5 text-sm md:text-sm lg:text-base xl:text-base m2xl:text-base">
+                <div className="pl-3 pt-5 text-sm md:text-sm lg:text-base xl:text-base m2xl:text-base select-none">
                   {card.label}
                 </div>
-                <div className="pl-3 font-bold text-base md:text-base lg:text-xl xl:text-xl 2xl:text-xl">
+                <div className="pl-3 font-bold text-base md:text-base lg:text-xl xl:text-xl 2xl:text-xl select-none">
                   {card.data}
                 </div>
               </div>
