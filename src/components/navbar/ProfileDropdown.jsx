@@ -35,7 +35,7 @@ const ProfileDropdown = ({ bgColor, textColor, handleLogout }) => {
   return (
     <div ref={ref} className="relative">
       <div
-        className="flex items-center gap-3 cursor-pointer 2xl:gap-8 md:gap-4"
+        className="flex items-center gap-3 cursor-pointer 2xl:gap-8 md:gap-4 lg:gap-5"
         onClick={() => setOpen((prev) => !prev)}
       >
         <CgProfile size={25} style={{ color: textColor }} />
@@ -80,23 +80,23 @@ const ProfileDropdown = ({ bgColor, textColor, handleLogout }) => {
                       damping: 20,
                       delay: 0.1 + idx / 40,
                     }}
-                    className="w-full p-[0.08rem] shadow-4xl border-b border-b-white/20 2xl:border-b-2"
+                    className="w-full p-[0.08rem] shadow-4xl border-b border-b-white/20 2xl:border-b-2 hover:bg-[#19223F]"
                   >
-                    <a
+                    <button
                       onClick={() => {
                         setOpen(false);
                         item.action();
                       }}
                       className="flex items-center justify-start w-full p-3 gap-3"
                     >
-                      <Icon style={{ color: textColor }} />
+                      <Icon style={{ color: textColor }} className="cursor-pointer"/>
                       <span
-                        className="flex gap-1 text-base 2xl:text-xl md:text-sm"
+                        className="flex gap-1 text-base 2xl:text-xl md:text-sm cursor-pointer"
                         style={{ color: textColor }}
                       >
                         {item.label}
                       </span>
-                    </a>
+                    </button>
                   </motion.li>
                 );
               })}

@@ -12,7 +12,7 @@ import { CiLocationOn } from "react-icons/ci";
 export const routes = [
   {
     title: "Dashboard",
-    href: "#",
+    href: "/",
     Icon: MdOutlineDashboard,
   },
   {
@@ -22,7 +22,7 @@ export const routes = [
   },
   {
     title: "Client Management",
-    href: "#",
+    href: "/client",
     Icon: MdOutlinePeopleAlt,
   },
   {
