@@ -43,7 +43,7 @@ export const routes = [
   },
   {
     title: "Alerts",
-    href: "#",
+    href: "/alert",
     Icon: IoAlertCircleSharp,
   },
   {

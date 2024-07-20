@@ -3,18 +3,7 @@ import { MdOutlinePeopleAlt, MdLaptop } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 import { IoAlertCircleSharp } from "react-icons/io5";
 
-const Dashboard = () => {
-
-  const circleStyle = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    // backgroundColor: "#047857",
-    // width: "45px",
-    // height: "45px",
-    borderRadius: "50%",
-  };
-
+const Dashboard1 = () => {
   const cards = [
     {
       label: "No. of Clients",
@@ -49,33 +38,46 @@ const Dashboard = () => {
     },
   ];
 
+  const circleStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    // backgroundColor: "#047857",
+    // width: "45px",
+    // height: "45px",
+    borderRadius: "50%",
+  };
+
   return (
-    <div
-      className="flex flex-col items-start justify-start pt-4 pl-1 2xl:gap-2 2xl:pt-6"
-    >
-      <h1 className="font-bold text-2xl pb-2 pl-5 2xl:text-3xl select-none">Dashboard</h1>
-      <div className="flex max-md:flex-wrap max-xl:flex-wrap justify-center 2xl:gap-5 pl-3">
+    <div className="flex flex-col items-start justify-start pt-4 pl-1 2xl:gap-4 2xl:pt-6 gap-2">
+      <h1 className="font-bold text-2xl pb-2 pl-5 2xl:text-3xl select-none">
+        Dashboard
+      </h1>
+      <div className="grid grid-cols-1 gap-4 2xl:gap-6 w-full px-5 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-5">
         {cards.map((card, idx) => {
           const { Icon, bgColor } = card;
           return (
-            <div className="pr-2 pl-2 pt-4 ">
-              <div className="bg-[#0F172B] h-34 w-60 p-5 md:h-36 md:w-44 lg:h-40 lg:w-60 xl:h-40 xl:w-[250px] 2xl:h-56 2xl:w-[470px]">
-                <div className="pl-3">
+            <div>
+              <div className="bg-[#0F172B] h-32 p-5 md:h-36 lg:h-36 xl:h-40 2xl:h-56 rounded-lg">
+                <div className="pl-3">  
                   <div
                     style={circleStyle}
                     className={`${bgColor} w-8 h-8 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 2xl:w-16 2xl:h-16`}
                   >
                     {card.img ? (
-                      <img src={card.img} className="w-1/2 h-1/2 object-contain select-none"></img>
+                      <img
+                        src={card.img}
+                        className="w-1/2 h-1/2 object-contain select-none"
+                      ></img>
                     ) : (
                       <Icon className="w-1/2 h-1/2 object-contain" />
                     )}
                   </div>
                 </div>
-                <div className="pl-3 pt-5 text-sm md:text-sm lg:text-base xl:text-base m2xl:text-base select-none">
+                <div className="pl-3 pt-4 text-sm md:text-sm lg:text-sm xl:text-sm 2xl:text-2xl select-none">
                   {card.label}
                 </div>
-                <div className="pl-3 font-bold text-base md:text-base lg:text-xl xl:text-xl 2xl:text-xl select-none">
+                <div className="pl-3 font-bold text-base md:text-base lg:text-lg xl:text-lg 2xl:text-3xl select-none">
                   {card.data}
                 </div>
               </div>
@@ -87,4 +89,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dashboard1;

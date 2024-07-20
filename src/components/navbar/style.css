@@ -1,0 +1,12 @@
+/* styles.css or a similar CSS file */
+@media (min-width: 1400px) {
+  .min-md-open {
+    padding-left: 300px;
+  }
+}
+
+@media (min-width: 2500px) {
+  .min-md-open {
+    padding-left: 650px;
+  }
+}

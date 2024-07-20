@@ -1,9 +1,12 @@
+import { useRef, useState } from "react";
 import { NavContent } from "./NavContent";
 import ProfileDropdown from "./ProfileDropdown";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { useNavigate, Outlet } from "react-router-dom";
+import "./style.css";
 
 export const Navbar = ({ bgColor, textColor }) => {
+  const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
 
   const responsiveStyle = {
@@ -11,7 +14,7 @@ export const Navbar = ({ bgColor, textColor }) => {
   };
 
   const handleLogout = () => {
-    navigate("/");
+    navigate("/login");
   };
   return (
     <>
@@ -21,7 +24,12 @@ export const Navbar = ({ bgColor, textColor }) => {
       >
         <nav className="flex items-center justify-between py-2">
           <div className="flex items-center space-x-3 pl-4">
-            <NavContent bgColor={bgColor} textColor={textColor} />
+            <NavContent
+              bgColor={bgColor}
+              textColor={textColor}
+              isOpen={isOpen}
+              setOpen={setOpen}
+            />
             <div className="logo font-bold text-2xl flex items-center space-x-2">
               <span
                 className="text-xl sm:text-2xl 2xl:text-3xl select-none"
@@ -50,7 +58,10 @@ export const Navbar = ({ bgColor, textColor }) => {
           </div>
         </nav>
       </div>
-      <div style={responsiveStyle}>
+      <div
+        style={responsiveStyle}
+        className={`transition-all duration-300 ${isOpen ? "min-md-open" : ""}`}
+      >
         <Outlet />
       </div>
     </>

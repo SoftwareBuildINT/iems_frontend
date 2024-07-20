@@ -3,7 +3,8 @@ import Login from "./components/login/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Client from "./components/client/Client";
 import ClientDetails from "./components/client/ClientDetails";
-import CreateClient from "./components/client/CreateClient"; // Import the CreateClient component
+import CreateClient from "./components/client/CreateClient";
+import Alert from "./components/alert/Alert";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
     <>
       <Router>
         <Routes>
+          <Route path="/login" element={<Login />}></Route>
           <Route
             path="/"
             element={<Navbar bgColor={bgColor} textColor={textColor} />}
@@ -25,38 +27,9 @@ export default function App() {
               element={<ClientDetails />}
             ></Route>
             <Route path="/create-client" element={<CreateClient />}></Route>
+            <Route path="/alert" element={<Alert />}></Route>
           </Route>
         </Routes>
-        {/* <Routes>
-          <Route path="/" element={<Login />} />
-          <Route
-            path="/dashboard"
-            element={
-              <>
-                <Navbar bgColor={bgColor} textColor={textColor} />
-                <Dashboard />
-              </>
-            }
-          />
-          <Route
-            path="/client"
-            element={
-              <>
-                <Navbar bgColor={bgColor} textColor={textColor} />
-                <Client />
-              </>
-            }
-          />
-          <Route
-            path="/client-details/:clientId"
-            element={
-              <>
-                <Navbar bgColor={bgColor} textColor={textColor} />
-                <ClientDetails />
-              </>
-            }
-          />
-        </Routes> */}
       </Router>
     </>
   );
