@@ -6,8 +6,8 @@ import { routes } from "../../routes";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useNavigate, useLocation } from "react-router-dom";
 
-export const NavContent = ({ bgColor, textColor }) => {
-  const [isOpen, setOpen] = useState(false);
+export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
+  // const [isOpen, setOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
   const ref = useRef(null);
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export const NavContent = ({ bgColor, textColor }) => {
   const handleNavigation = (href) => {
     if (href !== "#") {
       navigate(href);
-      setOpen(false);
+      // setOpen(false);
     }
   };
 

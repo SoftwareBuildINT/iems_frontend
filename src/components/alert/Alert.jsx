@@ -52,7 +52,7 @@ const DashboardCard = ({ label, value, icon, bgColor, bgicon }) => {
     >
       <div>
         <div className={`text-3xl ${bgicon}`}>
-          <img className="flex items-center justify-center ml-2 w-6 h-6   " src={icon} alt="" />
+          <img className="flex items-center justify-center ml-2 w-6 h-6" src={icon} alt="" />
         </div>
       </div>
       <div className="ml-4">
