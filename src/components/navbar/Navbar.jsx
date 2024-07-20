@@ -40,7 +40,7 @@ export const Navbar = ({ bgColor, textColor }) => {
               <img
                 src="src/assets/img/navbar/logo2_transparent.png"
                 className="w-6 h-6 2xl:w-9 2xl:h-9 mt-1 select-none"
-                alt="logo"
+                alt="logo" 
               />
             </div>
           </div>
