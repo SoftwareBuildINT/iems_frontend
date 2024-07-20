@@ -14,7 +14,7 @@ const filters = [
   const FilterButton = ({ label, icon }) => {
     return (
       <div className="flex items-center p-1 px-4 bg-[#19223F] text-white rounded-full shadow-md max-w-xs min-w-24 my-2 mx-2">
-        <span className='text-[#DAD6D6] text-xs'>{label}</span>
+        <span className='text-[#DAD6D6] text-xs 2xl:text-lg'>{label}</span>
         <span className="ml-2 text-xl">{icon}</span>
       </div>
     );
