@@ -1,5 +1,5 @@
 /* styles.css or a similar CSS file */
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
   .min-md-open {
     padding-left: 300px;
   }
