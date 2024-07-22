@@ -6,7 +6,7 @@ import { LuArrowRightToLine } from "react-icons/lu";
 
 const Alertlist = () => {
   return (
-    <div className="text-white  justify-center items-center px-7 py-4 ">
+    <div className="text-white justify-center items-center px-7 py-4 ">
       <div className="w-full overflow-x-auto">
         <table className="min-w-full rounded-lg ">
           <thead className="bg-[#19223F]">
