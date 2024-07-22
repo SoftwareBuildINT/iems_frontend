@@ -9,7 +9,7 @@ const ClientDetails = () => {
       <div className="font-bold text-2xl pb-2 pl-5 2xl:text-3xl select-none pb-4">
         <h1>Client Details</h1>
       </div>
-      <div className="w-full h-[200px] bg-[#50596C] text-white flex items-center p-4 rounded-lg select-none">
+      <div className="w-full h-[200px] bg-[#0F172B] text-white flex items-center p-4 rounded-lg select-none">
         <div className="flex w-full">
           <div className="flex-1 flex flex-col items-center justify-center relative">
             <img src="path-to-logo.png" alt="Logo" className="h-20" />
