@@ -32,36 +32,6 @@ export default function App() {
             <Route path="/device-list" element={<Devicelist />}></Route>
           </Route>
         </Routes>
-        {/* <Routes>
-          <Route path="/" element={<Login />} />
-          <Route
-            path="/dashboard"
-            element={
-              <>
-                <Navbar bgColor={bgColor} textColor={textColor} />
-                <Dashboard />
-              </>
-            }
-          />
-          <Route
-            path="/client"
-            element={
-              <>
-                <Navbar bgColor={bgColor} textColor={textColor} />
-                <Client />
-              </>
-            }
-          />
-          <Route
-            path="/client-details/:clientId"
-            element={
-              <>
-                <Navbar bgColor={bgColor} textColor={textColor} />
-                <ClientDetails />
-              </>
-            }
-          />
-        </Routes> */}
       </Router>
     </>
   );
