@@ -66,6 +66,7 @@ const DashboardCard = ({ label, value, icon, bgColor, bgicon }) => {
 const Alert = () => {
   return (
       <>
+      
         <div className="px-6">
           <h1 className="my-3 text-2xl font-medium 2xl:text-3xl">Alerts</h1>
             <div className="flex max-md:flex-wrap max-xl:flex-wrap gap-3 md:gap-2">

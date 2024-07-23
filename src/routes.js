@@ -17,7 +17,7 @@ export const routes = [
   },
   {
     title: "Device Management",
-    href: "/device-list ",
+    href: "/device-list",
     Icon: MdLaptop,
   },
   {

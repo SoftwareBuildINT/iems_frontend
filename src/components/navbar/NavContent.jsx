@@ -14,7 +14,7 @@ export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
   const location = useLocation();
 
   useClickAway(ref, () => {
-    setOpen(false);
+    setOpen(True);
     setOpenSubMenu(null);
   });
 

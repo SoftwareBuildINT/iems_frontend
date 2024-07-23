@@ -2,6 +2,7 @@ import React from "react";
 import { MdOutlinePeopleAlt, MdLaptop } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 import { IoAlertCircleSharp } from "react-icons/io5";
+import GoogleMapComponent from "./GoogleMapComponent"; // Make sure to adjust the import path as necessary
 
 const Dashboard1 = () => {
   const cards = [
@@ -42,9 +43,6 @@ const Dashboard1 = () => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "#047857",
-    // width: "45px",
-    // height: "45px",
     borderRadius: "50%",
   };
 
@@ -57,9 +55,9 @@ const Dashboard1 = () => {
         {cards.map((card, idx) => {
           const { Icon, bgColor } = card;
           return (
-            <div>
+            <div key={idx}>
               <div className="bg-[#0F172B] h-32 p-5 md:h-36 lg:h-36 xl:h-40 2xl:h-56 rounded-lg">
-                <div className="pl-3">  
+                <div className="pl-3">
                   <div
                     style={circleStyle}
                     className={`${bgColor} w-8 h-8 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 2xl:w-16 2xl:h-16`}
@@ -84,6 +82,9 @@ const Dashboard1 = () => {
             </div>
           );
         })}
+      </div>
+      <div className="w-full px-5 mt-4">
+        <GoogleMapComponent />
       </div>
     </div>
   );
