@@ -3,6 +3,7 @@ import { MdOutlinePeopleAlt, MdLaptop } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 import { IoAlertCircleSharp } from "react-icons/io5";
 import GoogleMapComponent from "./GoogleMapComponent"; // Make sure to adjust the import path as necessary
+import BarChartComponent from "./BarChartComponent"; // Make sure to adjust the import path as necessary
 
 const Dashboard1 = () => {
   const cards = [
@@ -85,6 +86,9 @@ const Dashboard1 = () => {
       </div>
       <div className="w-full px-5 mt-4">
         <GoogleMapComponent />
+      </div>
+      <div className="w-full px-5 mt-4">
+        <BarChartComponent />
       </div>
     </div>
   );
