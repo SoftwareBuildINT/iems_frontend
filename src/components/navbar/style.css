@@ -5,8 +5,25 @@
   }
 }
 
+@media (min-width: 1536px) {
+  .min-md-open {
+    padding-left: 300px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .min-md-open {
+    padding-left: 300px;
+  }
+}
+
 @media (min-width: 2500px) {
   .min-md-open {
     padding-left: 650px;
+  }
+
+  .component-body{
+    gap: 32px;
+    padding-top: 24px;
   }
 }

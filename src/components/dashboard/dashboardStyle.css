@@ -1,0 +1,179 @@
+@media (min-width: 300px) {
+  .component-body {
+    gap: 24px;
+    padding-top: 16px;
+  }
+
+  .page-header {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .card-container {
+    gap: 10px;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .card {
+    height: 128px;
+  }
+
+  .circle-dimension {
+    height: 32px;
+    width: 32px;
+  }
+
+ .card-label {
+    font-size: 13px; /* 12px */
+    line-height: 16px; /* 16px */
+  }
+
+  .card-data{
+    font-size: 16px; /* 13px */
+    line-height: 18px; /* 18px */
+  }
+}
+
+@media (min-width: 768px) {
+  .component-body {
+    gap: 24px;
+    padding-top: 16px;
+  }
+
+  .page-header {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .card-container {
+    gap: 10px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .card {
+    height: 132px;
+  }
+
+  .circle-dimension {
+    height: 32px;
+    width: 32px;
+  }
+
+ .card-label {
+    font-size: 13px; /* 12px */
+    line-height: 16px; /* 16px */
+  }
+
+  .card-data{
+    font-size: 16px; /* 13px */
+    line-height: 18px; /* 18px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .component-body {
+    gap: 24px;
+    padding-top: 16px;
+  }
+
+  .page-header {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .card-container {
+    gap: 10px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .card {
+    height: 144px;
+  }
+
+  .circle-dimension {
+    height: 40px;
+    width: 40px;
+  }
+
+ .card-label {
+    font-size: 14px; /* 12px */
+    line-height: 16px; /* 16px */
+  }
+
+  .card-data{
+    font-size: 18px; /* 13px */
+    line-height: 18px; /* 18px */
+  }
+}
+
+@media (min-width: 1536px) {
+  .component-body {
+    gap: 24px;
+    padding-top: 16px;
+  }
+
+  .page-header {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .card-container {
+    gap: 14px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .card {
+    height: 160px;
+  }
+
+  .circle-dimension {
+    height: 48px;
+    width: 48px;
+  }
+
+ .card-label {
+    font-size: 15px; /* 12px */
+    line-height: 16px; /* 16px */
+  }
+
+  .card-data{
+    font-size: 18px; /* 13px */
+    line-height: 18px; /* 18px */
+  }
+}
+
+@media (min-width: 2500px) {
+  .component-body {
+    gap: 32px;
+    padding-top: 36px;
+  }
+
+  .page-header {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .card-container {
+    gap: 24px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .card {
+    height: 224px;
+  }
+
+  .circle-dimension {
+    height: 64px;
+    width: 64px;
+  }
+
+  .card-label {
+    font-size: 24px; /* 24px */
+    line-height: 32px; /* 32px */
+  }
+
+  .card-data{
+    font-size: 30px; /* 13px */
+    line-height: 32px; /* 18px */
+  }
+}
