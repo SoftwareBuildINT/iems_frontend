@@ -4,7 +4,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { IoAlertCircleSharp } from "react-icons/io5";
 import GoogleMapComponent from "./GoogleMapComponent";
 import BarChartComponent from "./BarChartComponent"; 
-import "./dashboardStyle.css"; 
+import "./dashboard.css"; 
 
 const Dashboard1 = () => {
   const cards = [
@@ -88,7 +88,7 @@ const Dashboard1 = () => {
       <div className="w-full">
         <GoogleMapComponent />
       </div>
-      <div className="w-full px-5 mt-4">
+      <div className="w-full">
         <BarChartComponent />
       </div>
     </div>

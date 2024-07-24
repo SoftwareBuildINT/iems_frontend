@@ -94,7 +94,7 @@ const GoogleMapComponent = () => {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={5}
+      zoom={4}
       options={{ styles: mapStyles }}
     >
       {markers.map((marker, index) => (
