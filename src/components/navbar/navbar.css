@@ -1,0 +1,183 @@
+/* styles.css or a similar CSS file */
+@media (min-width: 300px) {
+  .side-bar {
+    margin-top: 64px !important;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 80% !important;
+    min-width: 300px;
+  }
+
+  .nav-icon {
+    font-size: 14px; 
+    line-height: 20px;
+  }
+
+  .nav-label {
+    font-size: 14px; 
+    line-height: 20px;
+  }
+
+  .dropdown-arrow {
+    font-size: 20px; /* 16px */
+    line-height: 24px; /* 24px */
+  }
+}
+
+@media (min-width: 768px) {
+  .side-bar {
+    margin-top: 64px !important;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 20% !important;
+    min-width: 300px;
+  }
+
+  .nav-icon {
+    font-size: 16px; /* 16px */
+    line-height: 24px; /* 24px */
+  }
+
+  .nav-label {
+    font-size: 0.75rem; /* 12px */
+    line-height: 16px; /* 16px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .side-bar {
+    margin-top: 64px !important;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 16% !important;
+    min-width: 300px;
+  }
+
+  .nav-icon {
+    font-size: 16px; /* 18px */
+    line-height: 26px; /* 28px */
+  }
+
+  .nav-label {
+    font-size: 14px; /* 16px */
+    line-height: 22px; /* 24px */
+  }
+}
+
+@media (min-width: 1300px) {
+  .min-md-open {
+    padding-left: 300px;
+  }
+
+  .side-bar {
+    margin-top: 64px !important;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 20% !important;
+    min-width: 300px;
+  }
+
+  .nav-icon {
+    font-size: 18px; /* 18px */
+    line-height: 28px; /* 28px */
+  }
+
+  .nav-label {
+    font-size: 16px; /* 16px */
+    line-height: 24px; /* 24px */
+  }
+}
+
+@media (min-width: 1536px) {
+  .min-md-open {
+    padding-left: 310px;
+  }
+
+  .side-bar {
+    margin-top: 64px !important;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 20% !important;
+    min-width: 300px;
+  }
+
+  .nav-icon {
+    font-size: 22px; /* 18px */
+    line-height: 32px; /* 28px */
+  }
+
+  .nav-label {
+    font-size: 19px; /* 16px */
+    line-height: 27px; /* 24px */
+  }
+
+  .dropdown-arrow {
+    font-size: 24px; /* 16px */
+    line-height: 26px; /* 24px */
+  }
+}
+
+@media (min-width: 2000px) {
+  .min-md-open {
+    padding-left: 400px;
+  }
+
+  .side-bar {
+    margin-top: 64px !important;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 20% !important;
+    min-width: 300px;
+  }
+
+  .nav-icon {
+    font-size: 22px; /* 18px */
+    line-height: 32px; /* 28px */
+  }
+
+  .nav-label {
+    font-size: 19px; /* 16px */
+    line-height: 27px; /* 24px */
+  }
+
+  .dropdown-arrow {
+    font-size: 24px; /* 16px */
+    line-height: 26px; /* 24px */
+  }
+}
+
+@media (min-width: 2500px) {
+  .min-md-open {
+    padding-left: 520px;
+  }
+
+  .side-bar {
+    margin-top: 64px !important;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 20% !important;
+    min-width: 300px;
+  }
+
+  .nav-icon {
+    font-size: 24px; /* 24px */
+    line-height: 32px; /* 32px */
+  }
+
+  .nav-label {
+    font-size: 24px; /* 24px */
+    line-height: 32px; /* 32px */
+  }
+
+  .dropdown-arrow {
+    font-size: 30px; /* 30px */
+    line-height: 36px; /* 36px */
+  }
+}

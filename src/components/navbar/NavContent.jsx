@@ -14,7 +14,7 @@ export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
   const location = useLocation();
 
   useClickAway(ref, () => {
-    setOpen(true);
+    // setOpen(true);
     setOpenSubMenu(null);
   });
 
@@ -44,7 +44,7 @@ export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.2 }}
-            className="fixed top-0 left-0 bottom-0 w-4/5 2xl:w-1/4 lg:w-1/5 md:w-1/5 sm:w-3/5 min-w-[300px] shadow-4xl p-5 mt-[64px] z-50"
+            className="fixed side-bar shadow-4xl p-5 z-50"
             style={{ backgroundColor: bgColor }}
           >
             <ul className="grid gap-1">
@@ -63,7 +63,9 @@ export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
                         damping: 20,
                         delay: 0.1 + idx / 10,
                       }}
-                      className={`w-full p-[0.08rem] rounded-xl hover:bg-[#19223F] ${isActive ? 'bg-[#19223F]' : ''}`}
+                      className={`w-full p-[0.08rem] rounded-xl hover:bg-[#19223F] ${
+                        isActive ? "bg-[#19223F]" : ""
+                      }`}
                     >
                       <button
                         onClick={() => {
@@ -77,12 +79,16 @@ export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
                       >
                         <div className="flex items-center gap-3 justify-start">
                           <Icon
-                            className={`text-sm 2xl:text-2xl md:text-base lg:text-lg sm:text-xs ${isActive ? 'text-[#E6FC5F]' : ''}`}
-                            style={{ color: !isActive ? textColor : '' }}
+                            className={`nav-icon ${
+                              isActive ? "text-[#E6FC5F]" : ""
+                            }`}
+                            style={{ color: !isActive ? textColor : "" }}
                           />
                           <span
-                            className={`flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs ${isActive ? 'text-[#E6FC5F]' : ''} select-none`}
-                            style={{ color: !isActive ? textColor : '' }}
+                            className={`flex gap-1 nav-label ${
+                              isActive ? "text-[#E6FC5F]" : ""
+                            } select-none`}
+                            style={{ color: !isActive ? textColor : "" }}
                           >
                             {route.title}
                           </span>
@@ -90,7 +96,7 @@ export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
                         <div>
                           {subRoutes && (
                             <RiArrowDropDownLine
-                              className="text-base 2xl:text-3xl"
+                              className="dropdown-arrow"
                               style={{ color: textColor }}
                             />
                           )}
@@ -105,7 +111,8 @@ export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
                         className="pl-4"
                       >
                         {subRoutes.map((subRoute) => {
-                          const isSubActive = location.pathname === subRoute.href;
+                          const isSubActive =
+                            location.pathname === subRoute.href;
 
                           return (
                             <motion.li
@@ -118,14 +125,25 @@ export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
                                 damping: 20,
                                 delay: 0.1 + idx / 20,
                               }}
-                              className={`w-full p-[0.08rem] rounded-xl hover:bg-[#19223F] ${isSubActive ? 'bg-[#19223F]' : ''}`}
+                              className={`w-full p-[0.08rem] rounded-xl hover:bg-[#19223F] ${
+                                isSubActive ? "bg-[#19223F]" : ""
+                              }`}
                             >
                               <button
                                 onClick={() => handleNavigation(subRoute.href)}
                                 className="flex items-center justify-start w-full p-3 gap-3 rounded-xl bg-transparent border-none cursor-pointer"
                               >
-                                <subRoute.Icon className={`text-sm 2xl:text-2xl md:text-base lg:text-lg sm:text-xs ${isSubActive ? 'text-[#E6FC5F]' : ''} select-none`}/>
-                                <span className={`flex gap-1 text-sm 2xl:text-2xl lg:text-base md:text-xs ${isSubActive ? 'text-[#E6FC5F]' : ''} select-none`} style={{ color: textColor }}>
+                                <subRoute.Icon
+                                  className={`nav-icon${
+                                    isSubActive ? "text-[#E6FC5F]" : ""
+                                  } select-none`}
+                                />
+                                <span
+                                  className={`flex gap-1 nav-label${
+                                    isSubActive ? "text-[#E6FC5F]" : ""
+                                  } select-none`}
+                                  style={{ color: textColor }}
+                                >
                                   {subRoute.title}
                                 </span>
                               </button>

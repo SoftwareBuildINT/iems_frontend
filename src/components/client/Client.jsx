@@ -119,7 +119,7 @@ const Client = () => {
           </div>
 
           <div className="relative w-full md:w-auto">
-            <select className="w-full md:w-auto appearance-none px-3 py-2 pr-10 border bg-[#000000] text-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <select className="w-full md:w-auto appearance-none px-3 py-2 pr-10 border bg-[#0a101f] text-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
               <option value="">Filter By</option>
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
