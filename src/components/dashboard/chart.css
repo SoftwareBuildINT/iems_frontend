@@ -1,115 +1,226 @@
 @media (min-width: 300px) {
   .chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .col-container-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 16px;
   }
 
-  .left-chart{
-    background-color: #0F172B;
+  .col-container-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .left-chart-1 {
+    background-color: #0f172b;
     grid-column: span 1 / span 1;
     border-radius: 12px;
   }
 
-  .right-chart{
-    background-color: #0F172B;
+  .right-chart-1 {
+    background-color: #0f172b;
     grid-column: span 1 / span 1;
     border-radius: 12px;
-    
   }
 
-  .chart-height{
+  .left-chart-2 {
+    background-color: #0f172b;
+    grid-column: span 1 / span 1;
+    border-radius: 12px;
+  }
+
+  .right-chart-2 {
+    background-color: #0f172b;
+    grid-column: span 1 / span 1;
+    border-radius: 12px;
+  }
+  .chart-height {
     height: 350px !important;
   }
 }
 
 @media (min-width: 768px) {
   .chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .col-container-1 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 16px;
   }
 
-  .left-chart{
-    background-color: #0F172B;
+  .col-container-2 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .left-chart-1 {
+    background-color: #0f172b;
     grid-column: span 3 / span 3;
     border-radius: 12px;
   }
 
-  .right-chart{
-    background-color: #0F172B;
+  .right-chart-1 {
+    background-color: #0f172b;
     grid-column: span 2 / span 2;
     border-radius: 12px;
   }
 
-  .chart-height{
+  .left-chart-2 {
+    background-color: #0f172b;
+    grid-column: span 3 / span 3;
+    border-radius: 12px;
+  }
+
+  .right-chart-2 {
+    background-color: #0f172b;
+    grid-column: span 3 / span 3;
+    border-radius: 12px;
+  }
+  .chart-height {
     height: 400px !important;
   }
 }
 
 @media (min-width: 1024px) {
   .chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .col-container-1 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
   }
 
-  .left-chart{
-    background-color: #0F172B;
+  .col-container-2 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .left-chart-1 {
+    background-color: #0f172b;
     grid-column: span 3 / span 3;
     border-radius: 12px;
   }
 
-  .right-chart{
-    background-color: #0F172B;
+  .right-chart-1 {
+    background-color: #0f172b;
     grid-column: span 1 / span 1;
     border-radius: 12px;
   }
 
-  .chart-height{
-    height: 400px !important;
+  .left-chart-2 {
+    background-color: #0f172b;
+    grid-column: span 2 / span 2;
+    border-radius: 12px;
+  }
+
+  .right-chart-2 {
+    background-color: #0f172b;
+    grid-column: span 3 / span 3;
+    border-radius: 12px;
+  }
+  
+  .chart-height {
+    height: 380px !important;
   }
 }
 
 @media (min-width: 1536px) {
   .chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .col-container-1 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
   }
 
-  .left-chart{
-    background-color: #0F172B;
-    grid-column: span 4 / span 3;
+  .col-container-2 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .left-chart-1 {
+    background-color: #0f172b;
+    grid-column: span 3 / span 3;
     border-radius: 12px;
   }
 
-  .right-chart{
-    background-color: #0F172B;
-    grid-column: span 1 / span 2;
+  .right-chart-1 {
+    background-color: #0f172b;
+    grid-column: span 1 / span 1;
     border-radius: 12px;
   }
 
-  .chart-height{
+  .left-chart-2 {
+    background-color: #0f172b;
+    grid-column: span 2 / span 2;
+    border-radius: 12px;
+  }
+
+  .right-chart-2 {
+    background-color: #0f172b;
+    grid-column: span 3 / span 3;
+    border-radius: 12px;
+  }
+  .chart-height {
     height: 450px !important;
   }
 }
 
 @media (min-width: 2500px) {
   .chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .col-container-1 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 24px;
   }
 
-  .left-chart{
-    background-color: #0F172B;
+  .col-container-2 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .left-chart-1 {
+    background-color: #0f172b;
     grid-column: span 4 / span 4;
     border-radius: 12px;
   }
 
-  .right-chart{
-    background-color: #0F172B;
+  .right-chart-1 {
+    background-color: #0f172b;
     grid-column: span 2 / span 2;
     border-radius: 12px;
   }
 
-  .chart-height{
+  .left-chart-2 {
+    background-color: #0f172b;
+    grid-column: span 2 / span 4;
+    border-radius: 12px;
+    height: 350px;
+  }
+
+  .right-chart-2 {
+    background-color: #0f172b;
+    grid-column: span 4 / span 2;
+    border-radius: 12px;
+  }
+  .chart-height {
     height: 500px !important;
   }
 }

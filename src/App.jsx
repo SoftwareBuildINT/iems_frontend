@@ -21,7 +21,7 @@ export default function App() {
           path="/"
           element={<Navbar bgColor={bgColor} textColor={textColor} />}
         >
-          <Route index element={<Dashboard />} />
+          <Route index element={<Dashboard title = "Dashboard"/>} />
           <Route path="client" element={<Client />} />
           <Route path="client-details/:clientId" element={<ClientDetails />} />
           <Route path="create-client" element={<CreateClient />} />

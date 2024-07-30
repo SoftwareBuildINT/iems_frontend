@@ -1,6 +1,7 @@
 // BarChartComponent.jsx
 import React from "react";
 import ReactEcharts from "echarts-for-react";
+import EnergySavingsChart from "./EnergySavingsChart";
 import "./chart.css";
 
 const BarChartComponent = () => {
@@ -21,7 +22,7 @@ const BarChartComponent = () => {
       backgroundColor: "#333",
       borderColor: "#777",
       textStyle: {
-        color: "#fff", 
+        color: "#fff",
       },
     },
     xAxis: {
@@ -80,10 +81,9 @@ const BarChartComponent = () => {
         barWidth: "60%",
         label: {
           show: false,
-          position: 'center'
+          position: "center",
         },
       },
-      
     ],
   };
 
@@ -102,14 +102,14 @@ const BarChartComponent = () => {
       backgroundColor: "#333",
       borderColor: "#777",
       textStyle: {
-        color: "#fff", 
+        color: "#fff",
       },
     },
     legend: {
       bottom: "5%",
       left: "center",
       textStyle: {
-        color: "#fff", 
+        color: "#fff",
       },
     },
     series: [
@@ -148,23 +148,36 @@ const BarChartComponent = () => {
             return colors[params.dataIndex];
           },
         },
+        label: {
+          show: false,
+        },
       },
     ],
   };
 
   return (
-    <div className="w-full grid chart-container transition-all duration-300">
-      <div className="left-chart">
-        <ReactEcharts
-          option={barChartOption}
-          className="p-2.5 chart-height"
-        />
+    <div className="chart-container">
+      <div className="w-full grid col-container-1">
+        <div className="left-chart-1">
+          <ReactEcharts
+            option={barChartOption}
+            className="p-2.5 chart-height"
+          />
+        </div>
+        <div className="right-chart-1">
+          <ReactEcharts
+            option={pieChartOption}
+            className="p-2.5 chart-height"
+          />
+        </div>
       </div>
-      <div className="right-chart">
-        <ReactEcharts
-          option={pieChartOption}
-          className="p-2.5 chart-height"
-        />
+      <div className="w-full grid col-container-2">
+        <div className="left-chart-2">
+          <EnergySavingsChart />
+        </div>
+        <div className="right-chart-2">
+          <EnergySavingsChart />
+        </div>
       </div>
     </div>
   );

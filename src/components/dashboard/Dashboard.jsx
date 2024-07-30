@@ -3,10 +3,10 @@ import { MdOutlinePeopleAlt, MdLaptop } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 import { IoAlertCircleSharp } from "react-icons/io5";
 import GoogleMapComponent from "./GoogleMapComponent";
-import BarChartComponent from "./BarChartComponent"; 
-import "./dashboard.css"; 
+import BarChartComponent from "./BarChartComponent";
+import "./dashboard.css";
 
-const Dashboard1 = () => {
+const Dashboard1 = ({ title }) => {
   const cards = [
     {
       label: "No. of Clients",
@@ -29,7 +29,7 @@ const Dashboard1 = () => {
     {
       label: "No. of Active Devices",
       data: "874",
-      img: "src/assets/img/alerts/active_device.svg",
+      img: "../src/assets/img/alerts/active_device.svg",
       Icon: null,
       bgColor: "bg-gradient-to-tl from-green-600 via-green-500 to-green-400",
     },
@@ -49,13 +49,11 @@ const Dashboard1 = () => {
   };
 
   return (
-    <div className="component-body flex flex-col items-start justify-start px-5">
-      <h1 className="page-header font-bold select-none">
-        Dashboard
-      </h1>
+    <div className="component-body">
+      <h1 className="page-header font-bold select-none">{title}</h1>
       <div className="grid w-full card-container">
         {cards.map((card, idx) => {
-          const { Icon, bgColor } = card; 
+          const { Icon, bgColor } = card;
           return (
             <div key={idx}>
               <div className="bg-[#0F172B] card p-5 rounded-lg">
