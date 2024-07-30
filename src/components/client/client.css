@@ -32,6 +32,27 @@
   background-color: #0f172b;
 }
 
+.client-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0;
+}
+
+.client-utility {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  width: auto;
+}
+
+.searchbar {
+  position: relative;
+  width: 100%;
+}
+
 @media (max-width: 500px) {
   .component-body {
     display: flex;
@@ -47,6 +68,7 @@
   .page-header {
     font-size: 24px;
     line-height: 32px;
+    font-weight: 700;
   }
 
   .client-card {
@@ -116,6 +138,7 @@
   .page-header {
     font-size: 24px;
     line-height: 32px;
+    font-weight: 700;
   }
 
   .client-card {
@@ -181,6 +204,7 @@
   .page-header {
     font-size: 24px;
     line-height: 32px;
+    font-weight: 700;
   }
 
   .client-card {
@@ -242,6 +266,7 @@
   .page-header {
     font-size: 24px;
     line-height: 32px;
+    font-weight: 700;
   }
 
   .client-card {
@@ -303,6 +328,7 @@
   .page-header {
     font-size: 24px;
     line-height: 32px;
+    font-weight: 700;
   }
 
   .client-card {

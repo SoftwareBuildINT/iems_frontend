@@ -50,7 +50,7 @@ const Dashboard1 = ({ title }) => {
 
   return (
     <div className="component-body">
-      <h1 className="page-header font-bold select-none">{title}</h1>
+      <h1 className="page-header select-none">{title}</h1>
       <div className="grid w-full card-container">
         {cards.map((card, idx) => {
           const { Icon, bgColor } = card;
