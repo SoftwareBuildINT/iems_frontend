@@ -8,6 +8,7 @@ import EditClient from "./components/client/EditClient"; // Import EditClient
 import Alert from "./components/alert/Alert";
 import Devicelist from "./components/device/Devicelist";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Location from "./components/location/Location";
 
 export default function App() {
   const bgColor = "#0F172B";
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="edit-client/:clientId" element={<EditClient />} /> {/* Add the route */}
           <Route path="alert" element={<Alert />} />
           <Route path="device-list" element={<Devicelist />} />
+          <Route path="location" element={<Location />} />
         </Route>
       </Routes>
     </Router>

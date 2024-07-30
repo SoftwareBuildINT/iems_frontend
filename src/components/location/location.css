@@ -1,0 +1,21 @@
+.react-tabs__tab--selected {
+    border-bottom: 4px solid yellow; /* Add yellow underline */
+    color: yellow; /* Change the text color */
+    background-color: transparent; /* Make background transparent */
+  }
+  
+  .react-tabs__tab {
+    padding: 1rem;
+    cursor: pointer;
+  }
+  
+  .react-tabs__tab-list {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+  }
+  
+  /* Optional: Style the hover state for better user experience */
+  .react-tabs__tab:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect */
+  }
+  
