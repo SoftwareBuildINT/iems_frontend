@@ -31,7 +31,7 @@ export const routes = [
     subRoutes: [
       {
         title: "Location Master",
-        href: "#",
+        href: "/location",
         Icon: MdOutlineAddLocationAlt,
       },
       {
