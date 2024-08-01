@@ -1,37 +1,3 @@
-.react-tabs__tab--selected {
-  border: none !important;
-  border-bottom: 4px solid yellow !important;
-  color: yellow !important;
-  background: transparent !important;
-}
-
-.react-tabs__tab:focus::after {
-  background: transparent !important;
-}
-
-.react-tabs__tab {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 120px !important;
-  border-start-start-radius: 5px !important;
-  border-start-end-radius: 5px !important;
-  padding: 1rem !important;
-  cursor: pointer !important;
-  user-select: none !important;
-}
-
-.react-tabs__tab-list {
-  display: flex !important;
-  flex-direction: row !important;
-  border-bottom: 3px solid #0f172b !important;
-}
-
-.react-tabs__tab:hover {
-  background-color: #0f172b !important;
-}
-
 .custom-reset {
   display: flex;
   align-items: center;
@@ -148,7 +114,58 @@
   padding-bottom: 8px;
 }
 
+.client-table-footer {
+  border-collapse: separate;
+  background: #0f172b;
+}
 
+.client-delete-modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+}
+
+.client-delete-modal-body {
+  background: #0f172b;
+  border-radius: 8px;
+  padding: 32px;
+  font-size: 17px;
+  line-height: 28px;
+}
+
+.client-delete-modal-header {
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.action-dropdown-container {
+  position: absolute;
+  right: 0px;
+  margin-top: 18px;
+  width: 128px;
+  background: #0f172b;
+  border-radius: 6px;
+}
+
+.action-dropdown-element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.action-dropdown-element:hover {
+  background: #1a253f;
+}
 
 .custom-select-container {
   position: relative;
@@ -330,6 +347,15 @@
     --tw-border-opacity: 1;
     border-color: rgb(75 85 99 / var(--tw-border-opacity)) /* #4b5563 */;
     cursor: pointer;
+  }
+
+  .client-delete-modal-body {
+    background: #0f172b;
+    border-radius: 8px;
+    padding: 32px;
+    width: 300px;
+    font-size: 15px;
+    line-height: 24px;
   }
 }
 
@@ -612,5 +638,14 @@
     text-align: left;
     font-size: 20 px;
     line-height: 28px;
+  }
+
+  .client-delete-modal-body {
+    background: #0f172b;
+    border-radius: 8px;
+    padding: 32px;
+    width: 800px;
+    font-size: 24px !important;
+    line-height: 32px !important;
   }
 }

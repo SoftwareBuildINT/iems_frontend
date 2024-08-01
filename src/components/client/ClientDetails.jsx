@@ -4,6 +4,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Dashboard from "../dashboard/Dashboard";
 import "./client.css";
+import "../../assets/styles/common.css";
 
 const ClientDetails = () => {
   const { clientId } = useParams();
@@ -60,8 +61,8 @@ const ClientDetails = () => {
             <Tab>User</Tab>
           </TabList>
 
-          <TabPanel >
-            <Dashboard/>
+          <TabPanel>
+            <Dashboard />
           </TabPanel>
           <TabPanel>
             <h2>Location Content</h2>

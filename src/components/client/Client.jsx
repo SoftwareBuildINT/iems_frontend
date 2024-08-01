@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoFilter } from "react-icons/io5";
 import { FaEllipsisV, FaTrash, FaPencilAlt } from "react-icons/fa";
+import useClickAway from "./hooks/useClickAway";
 import "./client.css";
+import "../../assets/styles/common.css";
 
 const Client = () => {
   const navigate = useNavigate();
@@ -11,6 +13,7 @@ const Client = () => {
   const [selectedClient, setSelectedClient] = useState(null);
   const [selectedOption, setSelectedOption] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const modalRef = useRef(null); // Create a ref for the delete modal
 
   const options = [
     { value: "active", label: "Active" },
@@ -106,6 +109,8 @@ const Client = () => {
     setSelectedClient(null);
   };
 
+  useClickAway(modalRef, () => setDeleteModalOpen(false));
+
   return (
     <div className="component-body">
       <div className="client-body">
@@ -170,24 +175,12 @@ const Client = () => {
           <table className="client-table-body">
             <thead className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#0f172b]">
               <tr>
-                <th className="client-table-header">
-                  Client Name
-                </th>
-                <th className="client-table-header">
-                  Client ID
-                </th>
-                <th className="client-table-header">
-                  No. of Locations
-                </th>
-                <th className="client-table-header">
-                  Contact Number
-                </th>
-                <th className="client-table-header">
-                  E-mail ID
-                </th>
-                <th className="client-table-header">
-                  Status
-                </th>
+                <th className="client-table-header">Client Name</th>
+                <th className="client-table-header">Client ID</th>
+                <th className="client-table-header">No. of Locations</th>
+                <th className="client-table-header">Contact Number</th>
+                <th className="client-table-header">E-mail ID</th>
+                <th className="client-table-header">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -217,11 +210,11 @@ const Client = () => {
                     />
                     {dropdownOpen === index && (
                       <div
-                        className="absolute right-0 mt-2 w-32 bg-[#001f3f] rounded-md shadow-lg z-10"
+                        className="action-dropdown-container shadow-lg z-10"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <div
-                          className="flex items-center justify-between py-2 px-4 hover:bg-blue-500 cursor-pointer rounded-md"
+                          className="action-dropdown-element"
                           onClick={(e) => handleEdit(client.clientId, e)}
                         >
                           Edit{" "}
@@ -231,7 +224,7 @@ const Client = () => {
                           />
                         </div>
                         <div
-                          className="flex items-center justify-between py-2 px-4 hover:bg-blue-500 cursor-pointer rounded-md"
+                          className="action-dropdown-element"
                           onClick={(e) => handleDelete(client.clientId, e)}
                         >
                           Delete <FaTrash className="ml-2" />
@@ -242,7 +235,7 @@ const Client = () => {
                 </tr>
               ))}
             </tbody>
-            <tfoot className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#0f172b]">
+            <tfoot className="client-table-footer border-spacing-x-5 border-spacing-y-2">
               <tr>
                 <td colSpan="6" className="p-2">
                   <div className="flex justify-end">
@@ -262,9 +255,9 @@ const Client = () => {
 
       {/* Delete Modal */}
       {deleteModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
-          <div className="bg-white rounded-lg p-8">
-            <h2 className="text-lg font-bold mb-4">Confirm Delete</h2>
+        <div className="client-delete-modal-container">
+          <div className="client-delete-modal-body" ref={modalRef}>
+            <h2 className="client-delete-modal-header">Confirm Delete</h2>
             <p className="mb-4">
               Are you sure you want to delete client {selectedClient}?
             </p>

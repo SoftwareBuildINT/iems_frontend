@@ -17,12 +17,12 @@ const ProfileDropdown = ({ bgColor, textColor, handleLogout }) => {
   const dropDown = [
     {
       label: "Settings",
-      action: () => setOpen(flase),
+      action: () => setOpen(false),
       Icon: IoSettingsOutline,
     },
     {
       label: "Help",
-      action: () => setOpen(flase),
+      action: () => setOpen(false),
       Icon: IoIosHelpCircleOutline,
     },
     {
