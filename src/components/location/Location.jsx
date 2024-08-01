@@ -34,7 +34,7 @@ const Location = () => {
     },
     {
       clientName: "UNION Bank",
-      clientId: "SB26621F62",
+      clientId: "SB26621F63",
       locations: "066",
       contact: "9092347820",
       email: "arunram12@gmail.com",
@@ -42,7 +42,7 @@ const Location = () => {
     },
     {
       clientName: "HDFC Bank",
-      clientId: "SB26621F62",
+      clientId: "SB26621F64",
       locations: "066",
       contact: "9092347820",
       email: "arunram12@gmail.com",
@@ -67,8 +67,8 @@ const Location = () => {
     // Add more clients as needed
   ];
 
-  const handleRowClick = (clientId) => {
-    navigate(`/client-details/${clientId}`);
+  const handleRowClick = (locationId) => {
+    navigate(`/location-details/${locationId}`);
   };
 
   const toggleDropdown = (index, event) => {
@@ -76,21 +76,21 @@ const Location = () => {
     setDropdownOpen(dropdownOpen === index ? null : index);
   };
 
-  const handleEdit = (clientId, event) => {
+  const handleEdit = (locationId, event) => {
     event.stopPropagation();
-    navigate(`/edit-client/${clientId}`);
+    navigate(`/edit-client/${locationId}`);
   };
 
 
-  const handleDelete = (clientId, event) => {
+  const handleDelete = (locationId, event) => {
     event.stopPropagation();
-    setSelectedClient(clientId);
+    setSelectedClient(locationId);
     setDeleteModalOpen(true);
   };
 
   const confirmDelete = () => {
     // Perform delete operation here
-    console.log("Deleted client:", selectedClient);
+    console.log("Deleted Location:", selectedLocation);
     setDeleteModalOpen(false);
     setSelectedClient(null);
   };
@@ -106,7 +106,7 @@ const Location = () => {
           <div className="relative w-full md:w-auto flex items-center">
             <input
               type="text"
-              placeholder="Search Client..."
+              placeholder="Search Location..."
               className="w-full md:w-auto px-3 py-2 pr-12 border border-gray-300 bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
               style={{ paddingRight: "3rem" }} // Adjust padding to accommodate the icon
             />
@@ -149,11 +149,6 @@ const Location = () => {
                   onClick={() => handleRowClick(client.clientId)}
                 >
                   <td className="px-4 py-2 flex items-center">
-                    <img
-                      src={`https://via.placeholder.com/30`}
-                      alt="client avatar"
-                      className="w-8 h-8 rounded-full mr-2"
-                    />
                     {client.clientName}
                   </td>
                   <td className="px-4 py-2">{client.clientId}</td>
