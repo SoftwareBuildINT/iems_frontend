@@ -13,8 +13,8 @@ const Client = () => {
   const [selectedClient, setSelectedClient] = useState(null);
   const [selectedOption, setSelectedOption] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const modalRef = useRef(null); // Create a ref for the delete modal
-
+  const modalRef = useRef(null);
+  
   const options = [
     { value: "active", label: "Active" },
     { value: "inactive", label: "Inactive" },

@@ -35,25 +35,23 @@ const ProfileDropdown = ({ bgColor, textColor, handleLogout }) => {
   return (
     <div ref={ref} className="relative">
       <div
-        className="flex items-center gap-3 cursor-pointer 2xl:gap-8 md:gap-4 lg:gap-5"
+        className="profile-dropdown-container"
         onClick={() => setOpen((prev) => !prev)}
       >
         <CgProfile size={25} style={{ color: textColor }} />
         <div>
-          <div
-            className="font-bold 2xl:text-xl md:text-sm hidden 2xl:block lg:block md:block"
-            style={{ color: textColor }}
-          >
+          <div className="profile-dropdown-user" style={{ color: textColor }}>
             User Name
           </div>
-          <div
-            className="text-sm 2xl:text-lg md:text-xs hidden 2xl:block lg:block md:block"
-            style={{ color: textColor }}
-          >
+          <div className="profile-dropdown-role" style={{ color: textColor }}>
             User Role
           </div>
         </div>
-        <RiArrowDropDownLine size={20} style={{ color: textColor }} className="hidden 2xl:block lg:block md:block"/>
+        <RiArrowDropDownLine
+          size={20}
+          style={{ color: textColor }}
+          className="profile-dropdown-arrow"
+        />
       </div>
       <AnimatePresence>
         {isOpen && (
@@ -62,7 +60,7 @@ const ProfileDropdown = ({ bgColor, textColor, handleLogout }) => {
             animate={{ y: "0%", opacity: 1 }}
             exit={{ y: "-10%", opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 mt-2  w-48 bg-white shadow-lg z-50 2xl:w-80 md:w-40"
+            className="profile-dropdown-content"
             style={{ backgroundColor: bgColor }}
           >
             <ul className="grid gap-1 2xl:gap-3 md:gap-0.5">
@@ -89,7 +87,10 @@ const ProfileDropdown = ({ bgColor, textColor, handleLogout }) => {
                       }}
                       className="flex items-center justify-start w-full p-3 gap-3"
                     >
-                      <Icon style={{ color: textColor }} className="cursor-pointer"/>
+                      <Icon
+                        style={{ color: textColor }}
+                        className="cursor-pointer"
+                      />
                       <span
                         className="flex gap-1 text-base 2xl:text-xl md:text-sm cursor-pointer"
                         style={{ color: textColor }}
