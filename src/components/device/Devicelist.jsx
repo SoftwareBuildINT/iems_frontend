@@ -1,39 +1,66 @@
-import React from "react";
-import Deviceselection from "./Deviceselection";
-import Devicetable from "./Devicetable";
+import React, { useState } from "react";
+import "./device.css";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import TableComponent from "./TableComponent"; // Adjust the path as needed
 
 const Devicelist = () => {
+  const [tabIndex, setTabIndex] = useState(0);
+
+  const clients = [
+    {
+      clientName: "ICICI Bank",
+      clientId: "SB26621F62",
+      locations: "066",
+      contact: "9092347820",
+      email: "arunram12@gmail.com",
+      status: "Active",
+      category: "i-ATM",
+    },
+    {
+      clientName: "UNION Bank",
+      clientId: "SB26621F62",
+      locations: "066",
+      contact: "9092347820",
+      email: "arunram12@gmail.com",
+      status: "Active",
+      category: "Piazza",
+    },
+    {
+      clientName: "UNION Bank",
+      clientId: "SB26621F62",
+      locations: "066",
+      contact: "9092347820",
+      email: "arunram12@gmail.com",
+      status: "Active",
+      category: "iZion",
+    },
+    // Add more clients as needed
+  ];
+
   return (
     <>
-      <div className="px-6">
-        <div className="flex items-center justify-between">
-          <h1 className="my-3 text-2xl font-medium 2xl:text-3xl">
-            Device List
-          </h1>
-          <div className="flex items-center border border-gray-500 rounded px-3 py-2  w-[250px]">
-            <input
-              type="text"
-              placeholder="Search Device"
-              className="bg-transparent text-white placeholder-gray-400 outline-none"
-            />
-            <svg
-              className="w-5 h-5 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"
-              ></path>
-            </svg>
-          </div>
+      <div className="component-body">
+        <h1 className="page-header font-bold select-none">Device Management</h1>
+        <div className="w-full mt-4">
+          <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+            <TabList>
+              <Tab>i-ATM</Tab>
+              <Tab>Piazza</Tab>
+              <Tab>iZion</Tab>
+            </TabList>
+
+            <TabPanel>
+              <TableComponent clients={clients.filter(client => client.category === "i-ATM")} />
+            </TabPanel>
+            <TabPanel>
+              <TableComponent clients={clients.filter(client => client.category === "Piazza")} />
+            </TabPanel>
+            <TabPanel>
+              <TableComponent clients={clients.filter(client => client.category === "iZion")} />
+            </TabPanel>
+          </Tabs>
         </div>
-        <Deviceselection />
-        <Devicetable />
       </div>
     </>
   );

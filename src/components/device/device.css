@@ -1,0 +1,240 @@
+.component-body {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 24px;
+    padding-top: 16px;
+  }
+  
+  .page-header {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  @media (min-width: 300px) {
+    .component-body {
+      padding-left: 20px;
+      padding-right: 20px;
+      gap: 24px;
+      padding-top: 16px;
+    }
+  
+    .page-header {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  
+    .card-container {
+      gap: 10px;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  
+    .card {
+      height: 128px;
+    }
+  
+    .circle-dimension {
+      height: 32px;
+      width: 32px;
+    }
+  
+    .card-label {
+      font-size: 13px;
+      line-height: 16px;
+    }
+  
+    .card-data {
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .component-body {
+      padding-left: 20px;
+      padding-right: 20px;
+      gap: 24px;
+      padding-top: 16px;
+    }
+  
+    .page-header {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  
+    .card-container {
+      gap: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  
+    .card {
+      height: 132px;
+    }
+  
+    .circle-dimension {
+      height: 32px;
+      width: 32px;
+    }
+  
+    .card-label {
+      font-size: 13px;
+      line-height: 16px;
+    }
+  
+    .card-data {
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .component-body {
+      padding-left: 20px;
+      padding-right: 20px;
+      gap: 24px;
+      padding-top: 16px;
+    }
+  
+    .page-header {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  
+    .card-container {
+      gap: 10px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  
+    .card {
+      height: 144px;
+    }
+  
+    .circle-dimension {
+      height: 40px;
+      width: 40px;
+    }
+  
+    .card-label {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  
+    .card-data {
+      font-size: 18px;
+      line-height: 18px;
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    .component-body {
+      padding-left: 20px;
+      padding-right: 20px;
+      gap: 24px;
+      padding-top: 16px;
+    }
+  
+    .page-header {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  
+    .card-container {
+      gap: 14px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  
+    .card {
+      height: 160px;
+    }
+  
+    .circle-dimension {
+      height: 48px;
+      width: 48px;
+    }
+  
+    .card-label {
+      font-size: 15px;
+      line-height: 16px;
+    }
+  
+    .card-data {
+      font-size: 18px;
+      line-height: 18px;
+    }
+  }
+  
+  @media (min-width: 2500px) {
+    .component-body {
+      padding-left: 20px;
+      padding-right: 20px;
+      gap: 32px;
+      padding-top: 36px;
+    }
+  
+    .page-header {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  
+    .card-container {
+      gap: 24px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  
+    .card {
+      height: 224px;
+    }
+  
+    .circle-dimension {
+      height: 64px;
+      width: 64px;
+    }
+  
+    .card-label {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  
+    .card-data {
+      font-size: 30px;
+      line-height: 32px;
+    }
+  }
+  
+  .react-tabs__tab--selected {
+    border: none;
+    border-bottom: 4px solid yellow;
+    color: yellow;
+    background: transparent !important;
+  }
+  
+  .react-tabs__tab:focus::after {
+    background: transparent !important;
+  }
+  
+  .react-tabs__tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    border-start-start-radius: 5px;
+    border-start-end-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .react-tabs__tab-list {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 3px solid #0f172b;
+  }
+  
+  .react-tabs__tab:hover {
+    background-color: #0f172b;
+  }
+  
