@@ -9,6 +9,18 @@ const Client = () => {
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedClient, setSelectedClient] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const options = [
+    { value: "active", label: "Active" },
+    { value: "inactive", label: "Inactive" },
+  ];
+
+  const handleSelect = (option) => {
+    setSelectedOption(option.value);
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -82,7 +94,6 @@ const Client = () => {
     navigate(`/edit-client/${clientId}`);
   };
 
-
   const handleDelete = (clientId, event) => {
     event.stopPropagation();
     setSelectedClient(clientId);
@@ -90,7 +101,6 @@ const Client = () => {
   };
 
   const confirmDelete = () => {
-    // Perform delete operation here
     console.log("Deleted client:", selectedClient);
     setDeleteModalOpen(false);
     setSelectedClient(null);
@@ -104,52 +114,90 @@ const Client = () => {
           <h4 className="text-xs md:text-sm pt-1">Client List /</h4>
         </div>
         <div className="client-utility">
-          <div className="relative w-full md:w-auto flex items-center">
+          <div className="searchbar">
             <input
               type="text"
               placeholder="Search Client..."
-              className="w-full md:w-auto px-3 py-2 pr-12 border border-gray-300 bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              style={{ paddingRight: "3rem" }} // Adjust padding to accommodate the icon
+              className="searchbar-text"
+              style={{ paddingRight: "3rem" }}
             />
             <lord-icon
               src="https://cdn.lordicon.com/pagmnkiz.json"
               trigger="hover"
-              colors="primary:#ffffff,secondary:#9ce5f4"
-              style={{ width: "30px", height: "30px", position: "absolute", right: "0", margin: "10px" }}
+              colors="primary:#ffffff, secondary:#9ce5f4"
+              class="searchbar-icon"
             ></lord-icon>
           </div>
-
-          <div className="relative w-full md:w-auto">
-            <select className="w-full md:w-auto appearance-none px-3 py-2 pr-10 border bg-transparent text-white border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
-              <option value="">Filter By</option>
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
-            </select>
-            <IoFilter className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white" />
+          <div className="flex w-full gap-2">
+            <div className="relative w-full custom-select-container">
+              <div
+                className={`custom-select ${isOpen ? "open" : ""}`}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                {selectedOption
+                  ? options.find((opt) => opt.value === selectedOption).label
+                  : "Filter By"}
+                <IoFilter />
+              </div>
+              {isOpen && (
+                <div className="custom-options">
+                  {options.map((option) => (
+                    <div
+                      key={option.value}
+                      className="custom-option"
+                      style={{ backgroundColor: option.backgroundColor }}
+                      onClick={() => handleSelect(option)}
+                    >
+                      {option.label}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="custom-reset" onClick={() => handleSelect("")}>
+              <lord-icon
+                src="https://cdn.lordicon.com/rsbokaso.json"
+                trigger="hover"
+                colors="primary:#ffffff"
+                style={{ width: "24px", height: "24px" }}
+              ></lord-icon>
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto p- w-full">
+      <div className="client-table-container">
         <div className="overflow-x-auto">
-          <table className="table-auto w-full min-w-full">
-            <thead className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#19223F]">
+          <table className="client-table-body">
+            <thead className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#0f172b]">
               <tr>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">Client Name</th>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">Client ID</th>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">No. of Locations</th>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">Contact Number</th>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">E-mail ID</th>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">Status</th>
+                <th className="client-table-header">
+                  Client Name
+                </th>
+                <th className="client-table-header">
+                  Client ID
+                </th>
+                <th className="client-table-header">
+                  No. of Locations
+                </th>
+                <th className="client-table-header">
+                  Contact Number
+                </th>
+                <th className="client-table-header">
+                  E-mail ID
+                </th>
+                <th className="client-table-header">
+                  Status
+                </th>
               </tr>
             </thead>
             <tbody>
               {clients.map((client, index) => (
                 <tr
                   key={index}
-                  className="text-xs md:text-sm lg:text-base border-b border-gray-600 cursor-pointer"
+                  className="client-table-row text"
                   onClick={() => handleRowClick(client.clientId)}
                 >
-                  <td className="px-4 py-2 flex items-center">
+                  <td className="client-table-cell flex items-center">
                     <img
                       src={`https://via.placeholder.com/30`}
                       alt="client avatar"
@@ -157,27 +205,30 @@ const Client = () => {
                     />
                     {client.clientName}
                   </td>
-                  <td className="px-4 py-2">{client.clientId}</td>
-                  <td className="px-4 py-2">{client.locations}</td>
-                  <td className="px-4 py-2">{client.contact}</td>
-                  <td className="px-4 py-2">{client.email}</td>
-                  <td className="px-4 py-2 relative flex items-center">
+                  <td className="client-table-cell">{client.clientId}</td>
+                  <td className="client-table-cell">{client.locations}</td>
+                  <td className="client-table-cell">{client.contact}</td>
+                  <td className="client-table-cell">{client.email}</td>
+                  <td className="client-table-cell relative flex items-center">
                     {client.status}
                     <FaEllipsisV
                       className="ml-2 cursor-pointer"
                       onClick={(e) => toggleDropdown(index, e)}
                     />
                     {dropdownOpen === index && (
-                      <div className="absolute right-0 mt-2 w-32 bg-[#001f3f] rounded-md shadow-lg z-10" onClick={(e) => e.stopPropagation()}>
+                      <div
+                        className="absolute right-0 mt-2 w-32 bg-[#001f3f] rounded-md shadow-lg z-10"
+                        onClick={(e) => e.stopPropagation()}
+                      >
                         <div
                           className="flex items-center justify-between py-2 px-4 hover:bg-blue-500 cursor-pointer rounded-md"
                           onClick={(e) => handleEdit(client.clientId, e)}
                         >
-                          Edit <FaPencilAlt
+                          Edit{" "}
+                          <FaPencilAlt
                             className="ml-2 cursor-pointer"
                             onClick={(e) => handleEdit(client.clientId, e)}
                           />
-
                         </div>
                         <div
                           className="flex items-center justify-between py-2 px-4 hover:bg-blue-500 cursor-pointer rounded-md"
@@ -191,13 +242,13 @@ const Client = () => {
                 </tr>
               ))}
             </tbody>
-            <tfoot className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#19223F]">
+            <tfoot className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#0f172b]">
               <tr>
                 <td colSpan="6" className="p-2">
                   <div className="flex justify-end">
                     <button
                       className="font-bold px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg"
-                      onClick={() => navigate('/create-client')}
+                      onClick={() => navigate("/create-client")}
                     >
                       + Create Client
                     </button>
@@ -212,18 +263,20 @@ const Client = () => {
       {/* Delete Modal */}
       {deleteModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
-          <div className="bg-[#0f172b] rounded-lg p-4 w-1/3">
+          <div className="bg-white rounded-lg p-8">
             <h2 className="text-lg font-bold mb-4">Confirm Delete</h2>
-            <p className="mb-4">Are you sure you want to delete this client?</p>
+            <p className="mb-4">
+              Are you sure you want to delete client {selectedClient}?
+            </p>
             <div className="flex justify-end">
               <button
-                className="px-4 py-2 bg-gray-800 hover:bg-gray-600 rounded-lg mr-2"
+                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-2"
                 onClick={() => setDeleteModalOpen(false)}
               >
                 Cancel
               </button>
               <button
-                className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg"
+                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
                 onClick={confirmDelete}
               >
                 Delete
