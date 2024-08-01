@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoFilter } from "react-icons/io5";
 import { FaEllipsisV, FaTrash, FaPencilAlt } from "react-icons/fa";
+import "./client.css";
 
 const Client = () => {
   const navigate = useNavigate();
@@ -97,12 +98,12 @@ const Client = () => {
 
   return (
     <div className="component-body">
-      <div className="select-none flex flex-col md:flex-row justify-between w-full pb-4 pr-3 space-y-4 md:space-y-0">
+      <div className="client-body">
         <div>
-          <h1 className="page-header font-bold select-none">Client Management</h1>
+          <h1 className="page-header">Client Management</h1>
           <h4 className="text-xs md:text-sm pt-1">Client List /</h4>
         </div>
-        <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-2 w-full md:w-auto px-3 md:px-0">
+        <div className="client-utility">
           <div className="relative w-full md:w-auto flex items-center">
             <input
               type="text"
@@ -128,7 +129,7 @@ const Client = () => {
           </div>
         </div>
       </div>
-      <div className="flex-1 overflow-y-auto p-3 w-full">
+      <div className="flex-1 overflow-y-auto p- w-full">
         <div className="overflow-x-auto">
           <table className="table-auto w-full min-w-full">
             <thead className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#19223F]">
