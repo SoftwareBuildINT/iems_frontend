@@ -19,7 +19,7 @@ const TableComponent = ({ clients }) => {
 
   const handleEdit = (clientId, event) => {
     event.stopPropagation();
-    navigate(`/edit-client/${clientId}`);
+    navigate(`/edit-device/${deviceId}`);
   };
 
   const handleDelete = (clientId, event) => {
@@ -100,7 +100,7 @@ const TableComponent = ({ clients }) => {
                   <div className="flex justify-end">
                     <button
                       className="font-bold px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg"
-                      onClick={() => navigate('/create-client')}
+                      onClick={() => navigate('/add-device')}
                     >
                       + Add Device
                     </button>

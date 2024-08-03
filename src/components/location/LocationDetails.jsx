@@ -4,15 +4,17 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Dashboard from "../dashboard/Dashboard";
 import "./location.css";
+import LocationStats from "./LocationStats";
+import LineChart from "./LineChart"
 
-const ClientDetails = () => {
+const LocationDetails = () => {
   const { clientId } = useParams();
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
     <div className="component-body">
       <div className="page-header font-bold select-none">
-        <h1>Client Details</h1>
+        <h1>Location Details</h1>
       </div>
       <div className="client-card">
         <div className="item-container">
@@ -25,13 +27,18 @@ const ClientDetails = () => {
             <div className="divider-line"></div>
           </div>
           <div className="card-item">
-            <span>Client Name</span>
-            <span className="font-bold pt-2">Diebold</span>
+            <span>Location Name</span>
+            <span className="font-bold pt-2">Thane</span>
+            <div className="divider-line"></div>
+          </div>
+          <div className="card-item">
+            <span>Location ID</span>
+            <span className="font-bold pt-2">LOCID1</span>
             <div className="divider-line"></div>
           </div>
           <div className="card-item hidden-1">
             <span>Contact Person</span>
-            <span className="font-bold pt-2">Saujeet</span>
+            <span className="font-bold pt-2">Khilesh</span>
             <div className="divider-line"></div>
           </div>
           <div className="card-item hidden-1">
@@ -55,13 +62,12 @@ const ClientDetails = () => {
       <div className="w-full mt-4">
         <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList>
-            <Tab>Dashboard</Tab>
-            <Tab>Location</Tab>
+            <Tab>Statistics</Tab>
+            <Tab>Control</Tab>
             <Tab>User</Tab>
           </TabList>
-
           <TabPanel >
-            <Dashboard/>
+          <LocationStats />
           </TabPanel>
           <TabPanel>
             <h2>Location Content</h2>
@@ -77,4 +83,4 @@ const ClientDetails = () => {
   );
 };
 
-export default ClientDetails;
+export default LocationDetails;
