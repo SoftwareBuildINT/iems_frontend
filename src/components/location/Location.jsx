@@ -191,7 +191,7 @@ const Location = () => {
                   <div className="flex justify-end">
                     <button
                       className="font-bold px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg"
-                      onClick={() => navigate('/create-client')}
+                      onClick={() => navigate('/create-location')}
                     >
                       + Add Location
                     </button>

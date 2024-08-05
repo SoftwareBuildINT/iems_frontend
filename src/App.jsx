@@ -11,6 +11,8 @@ import Devicelist from "./components/device/Devicelist";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Location from "./components/location/Location";
 import LocationDetails from "./components/location/LocationDetails"
+import CreateLocation from "./components/location/CreateLocation";
+import AddDevice from "./components/device/AddDevice";
 
 export default function App() {
   const bgColor = "#0F172B";
@@ -33,6 +35,8 @@ export default function App() {
           <Route path="device-list" element={<Devicelist />} />
           <Route path="location" element={<Location />} />
           <Route path="Location-details/:locationId" element={<LocationDetails />} />
+          <Route path="create-location" element={<CreateLocation />} />
+          <Route path="add-device" element={<AddDevice/ >} />
         </Route>
       </Routes>
     </Router>
