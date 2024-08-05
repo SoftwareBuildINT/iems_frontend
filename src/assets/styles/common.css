@@ -48,3 +48,18 @@
 .react-tabs__tab:hover {
   background-color: #0f172b !important;
 }
+
+@media (min-width: 300px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
+}
+
+@media (min-width: 1536px) {
+}
+
+@media (min-width: 2500px) {
+}

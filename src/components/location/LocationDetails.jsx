@@ -11,7 +11,7 @@ const ClientDetails = () => {
 
   return (
     <div className="component-body">
-      <div className="page-header font-bold select-none">
+      <div className="page-header select-none">
         <h1>Client Details</h1>
       </div>
       <div className="client-card">

@@ -1,100 +1,252 @@
-import React from "react";
-import Selection from "./Selection";
-import Alertlist from "./Alertlist";
+import React, { useState } from "react";
+import { FaEllipsisV, FaTrash, FaPencilAlt } from "react-icons/fa";
+import "./alert.css";
+import "../../assets/styles/common.css";
 
-const data = [
-  {
-    label: "Signage",
-    value: "01",
-    icon: "src/assets/img/alerts/signage.svg",
-    bgColor: "bg-[#11172A]",
-    bgicon:
-      "bg-gradient-to-tl from-fuchsia-400 to-fuchsia-200 h-10 w-10 flex items-center rounded-full",
-  },
-  {
-    label: "Ac",
-    value: "413",
-    icon: "src/assets/img/alerts/ac.svg",
-    bgColor: "bg-[#11172A]",
-    bgicon:
-      "bg-gradient-to-tl from-blue-500 to-blue-300 h-10 w-10 flex items-center rounded-full",
-  },
-  {
-    label: "UPS",
-    value: "10",
-    icon: "src/assets/img/alerts/ups.svg",
-    bgColor: "bg-[#11172A]",
-    bgicon:
-      "bg-gradient-to-tl from-purple-800 to-purple-500 h-10 w-10 flex items-center rounded-full",
-  },
-  {
-    label: "Sensors",
-    value: "300",
-    icon: "src/assets/img/alerts/sensors.svg",
-    bgColor: "bg-[#11172A]",
-    bgicon:
-      "bg-gradient-to-tl from-amber-400 to-amber-200 h-10 w-10 flex items-center rounded-full",
-  },
-  {
-    label: "ATM Machine",
-    value: "150",
-    icon: "src/assets/img/alerts/atm.svg",
-    bgColor: "bg-[#11172A]",
-    bgicon:
-      "bg-gradient-to-tl from-rose-700 to-rose-500 h-10 w-10 flex items-center rounded-full",
-  },
-];
+const Alert = () => {
+  const clients = [
+    {
+      alertId: "1",
+      did: "P1DCMU20",
+      location: "Ghatkopar",
+      alertDescription: "AC-2 compressor not working",
+      assignTo: "Sanjeev Singh",
+      priority: "High",
+      raisedOn: "29/07/2024",
+      colsedOn: "31/07/2024",
+      dueDays: "NA",
+      status: "Resolved",
+    },
+    {
+      alertId: "2",
+      did: "P1DCMU24",
+      location: "Vikhroli",
+      alertDescription: "Signage scheduling issue",
+      assignTo: "Sanjeev Singh",
+      priority: "Medium",
+      raisedOn: "01/08/2024",
+      colsedOn: "03/08/2024",
+      dueDays: "NA",
+      status: "Resolved",
+    },
+    {
+      alertId: "3",
+      did: "P1DCMU27",
+      location: "Thane",
+      alertDescription: "AC-1 is not cooling",
+      assignTo: "Sanjeev Singh",
+      priority: "Low",
+      raisedOn: "31/07/2024",
+      colsedOn: "NA",
+      dueDays: "3",
+      status: "Pending",
+    },
+    {
+      alertId: "4",
+      did: "P1DCMU35",
+      location: "Dadar",
+      alertDescription: "AC-1 is not working properly",
+      assignTo: "Sanjeev Singh",
+      priority: "High",
+      raisedOn: "01/08/2024",
+      colsedOn: "NA",
+      dueDays: "2",
+      status: "Pending",
+    },
+    {
+      alertId: "5",
+      did: "P1DCMU43",
+      location: "Saki Naka",
+      alertDescription: "P1DCMU43 is offline since 02/08/2024",
+      assignTo: "Sanjeev Singh",
+      priority: "High",
+      raisedOn: "02/08/2024",
+      colsedOn: "03/08/2024",
+      dueDays: "NA",
+      status: "Resolved",
+    },
+    // Add more clients as needed
+  ];
 
-const DashboardCard = ({ label, value, icon, bgColor, bgicon }) => {
+  const cards = [
+    {
+      label: "Signage",
+      data: "30",
+      Icon: "src/assets/img/alerts/signage.svg",
+      bgColor: "bg-gradient-to-tl from-purple-600 via-purple-500 to-purple-400",
+    },
+    {
+      label: "AC",
+      data: "692",
+      Icon: "src/assets/img/alerts/ac.svg",
+      bgColor: "bg-gradient-to-tl from-blue-600 via-blue-500 to-blue-400",
+    },
+    {
+      label: "UPS",
+      data: "138",
+      Icon: "src/assets/img/alerts/ups.svg",
+      bgColor: "bg-gradient-to-tl from-violet-600 via-violet-500 to-violet-400",
+    },
+    {
+      label: "Sensors",
+      data: "420",
+      Icon: "src/assets/img/alerts/sensors.svg",
+      bgColor: "bg-gradient-to-tl from-yellow-600 via-yellow-500 to-yellow-400",
+    },
+    {
+      label: "ATM Machines",
+      data: "331",
+      Icon: "src/assets/img/alerts/atm.svg",
+      bgColor: "bg-gradient-to-tl from-red-600 via-red-500 to-red-400",
+    },
+  ];
+
+  const circleStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "50%",
+  };
+
+  const totalData = cards.reduce((sum, card) => sum + Number(card.data), 0);
+
+  const [checkedState, setCheckedState] = useState(
+    new Array(clients.length).fill(false)
+  );
+
+  const [isHeaderChecked, setIsHeaderChecked] = useState(false);
+
+  const handleHeaderCheckboxChange = () => {
+    const newCheckedState = new Array(clients.length).fill(!isHeaderChecked);
+    setCheckedState(newCheckedState);
+    setIsHeaderChecked(!isHeaderChecked);
+  };
+
+  const handleRowCheckboxChange = (index) => {
+    const newCheckedState = checkedState.map((item, idx) =>
+      idx === index ? !item : item
+    );
+    setCheckedState(newCheckedState);
+    setIsHeaderChecked(newCheckedState.every((state) => state));
+  };
+
   return (
-    <div
-      className={`flex items-center p-4 ${bgColor} rounded-md text-white shadow-md w-[380px] md:w-[230px] lg:w-[185px] xl:w-[280px] 2xl:w-[490px]`}
-    >
-      <div>
-        <div className={`text-3xl ${bgicon}`}>
-          <img className="flex items-center justify-center ml-2 w-6 h-6" src={icon} alt="" />
-        </div>
+    <div className="component-body">
+      <h1 className="page-header select-none">Alerts</h1>
+      <div className="grid w-full card-container">
+        {cards.map((card, idx) => {
+          const { bgColor } = card;
+          return (
+            <div key={idx}>
+              <div className="alert-card select-none">
+                <div className="pl-3">
+                  <div
+                    className={`circle-dimension ${bgColor}`}
+                    style={circleStyle}
+                  >
+                    <img
+                      src={card.Icon}
+                      className="w-1/2 h-1/2 object-contain select-none"
+                    ></img>
+                  </div>
+                </div>
+                <div className="pl-4">
+                  <div className="alert-card-label">{card.label}</div>
+                  <div className="font-bold alert-card-data">{card.data}</div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
-      <div className="ml-4">
-        <p className="text-xs text-[#878990] 2xl:text-lg">{label}</p>
-        <p className="text-lg font-bold 2xl:text-xl">{value}</p>
+      <div className="w-full">
+        <div className="flex justify-between items-center select-none">
+          <div className="page-header">Alert List {`(${totalData})`}</div>
+          <div className="border rounded-xl p-2 flex gap-2 hover:bg-[#0f172b] cursor-pointer">
+            <img src="src/assets/img/alerts/excel.svg" alt="excel" /> Download
+            Alert
+          </div>
+        </div>
+        <div className="alert-table-container">
+          <div className="overflow-x-auto">
+            <table className="alert-table-body rounded-xl ">
+              <thead className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#0f172b] ">
+                <tr>
+                  <th className="alert-table-header">
+                    <input
+                      type="checkbox"
+                      className="m-2"
+                      checked={isHeaderChecked}
+                      onChange={handleHeaderCheckboxChange}
+                    />
+                    Alert ID
+                  </th>
+                  <th className="alert-table-header">DID</th>
+                  <th className="alert-table-header">Location</th>
+                  <th className="alert-table-header">Alert Description</th>
+                  <th className="alert-table-header">Assign to</th>
+                  <th className="alert-table-header">Priority</th>
+                  <th className="alert-table-header">Raised on</th>
+                  <th className="alert-table-header">Closed on</th>
+                  <th className="alert-table-header">Due Days</th>
+                  <th className="alert-table-header">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {clients.map((client, index) => (
+                  <tr key={index} className="alert-table-row text">
+                    <td className="alert-table-cell flex items-center">
+                      <input
+                        type="checkbox"
+                        className="m-2"
+                        checked={checkedState[index]}
+                        onChange={() => handleRowCheckboxChange(index)}
+                      />
+                      {client.alertId}
+                    </td>
+                    <td className="alert-table-cell">{client.did}</td>
+                    <td className="alert-table-cell">{client.location}</td>
+                    <td className="alert-table-cell">
+                      {client.alertDescription}
+                    </td>
+                    <td className="alert-table-cell">{client.assignTo}</td>
+                    <td className="alert-table-cell">{client.priority}</td>
+                    <td className="alert-table-cell">{client.raisedOn}</td>
+                    <td className="alert-table-cell">{client.colsedOn}</td>
+                    <td className="alert-table-cell">{client.dueDays}</td>
+                    <td className="alert-table-cell">{client.status}</td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot className="alert-table-footer border-spacing-x-5 border-spacing-y-2">
+                <tr>
+                  {/* <td colSpan="10" className="p-2">
+                    <div className="flex justify-end">
+                      <button
+                        className="font-bold px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg"
+                      >
+                        + Create Client
+                      </button>
+                    </div>
+                  </td> */}
+
+                  <td colSpan="5" className="p-2">
+                    <div>Items per page 10</div>
+                  </td>
+                  <td colSpan="3" className="p-2">
+                    <div className="flex justify-end">Page 1-10 of 50</div>
+                  </td>
+                  <td colSpan="2" className="p-2">
+                    <div className="flex justify-end">arrows</div>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
-
-const Alert = () => {
-  return (
-      <>
-      
-        <div className="px-6">
-          <h1 className="my-3 text-2xl font-medium 2xl:text-3xl">Alerts</h1>
-            <div className="flex max-md:flex-wrap max-xl:flex-wrap gap-3 md:gap-2">
-              {data.map((item, index) => (
-                <DashboardCard
-                  key={index}
-                  label={item.label}
-                  value={item.value}
-                  icon={item.icon}
-                  bgColor={item.bgColor}
-                  bgicon={item.bgicon}
-                />
-              ))} 
-          </div>
-          <div className="flex items-center justify-between">
-            <h1 className="my-3 text-2xl font-medium 2xl:text-3xl">Alerts List (100)</h1>
-            <button className="border-solid border-[#A5A5A9] border	rounded px-3 py-2 text-xs flex gap-2 2xl:text-lg justify-center items-center">
-              <img src="src/assets/img/alerts/excel.svg" alt="excel" /> Download
-              Alert
-            </button>
-          </div>
-          <Selection />
-        </div>
-        
-        <Alertlist />
-       
-      </>
-    );
-  };
 
 export default Alert;

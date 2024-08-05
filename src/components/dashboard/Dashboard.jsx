@@ -5,6 +5,7 @@ import { IoAlertCircleSharp } from "react-icons/io5";
 import GoogleMapComponent from "./GoogleMapComponent";
 import BarChartComponent from "./BarChartComponent";
 import "./dashboard.css";
+import "../../assets/styles/common.css";
 
 const Dashboard1 = ({ title }) => {
   const cards = [

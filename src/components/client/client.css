@@ -107,6 +107,10 @@
   cursor: pointer;
 }
 
+.client-table-row:hover {
+  background-color: #162038;
+}
+
 .client-table-cell {
   padding-left: 16px;
   padding-right: 16px;
@@ -217,23 +221,6 @@
 }
 
 @media (max-width: 500px) {
-  .component-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 24px;
-    padding-top: 16px;
-  }
-
-  .page-header {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
-  }
-
   .client-card {
     display: flex;
     align-items: center;
@@ -360,23 +347,6 @@
 }
 
 @media (min-width: 768px) {
-  .component-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 24px;
-    padding-top: 16px;
-  }
-
-  .page-header {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
-  }
-
   .client-card {
     display: flex;
     align-items: center;
@@ -426,23 +396,6 @@
 }
 
 @media (min-width: 1024px) {
-  .component-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 24px;
-    padding-top: 16px;
-  }
-
-  .page-header {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
-  }
-
   .client-card {
     display: flex;
     align-items: center;
@@ -488,23 +441,6 @@
 }
 
 @media (min-width: 1536px) {
-  .component-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 24px;
-    padding-top: 16px;
-  }
-
-  .page-header {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
-  }
-
   .client-card {
     display: flex;
     align-items: center;
@@ -550,23 +486,6 @@
 }
 
 @media (min-width: 2500px) {
-  .component-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 24px;
-    padding-top: 16px;
-  }
-
-  .page-header {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
-  }
-
   .client-card {
     display: flex;
     align-items: center;

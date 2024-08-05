@@ -41,7 +41,7 @@ const Devicelist = () => {
   return (
     <>
       <div className="component-body">
-        <h1 className="page-header font-bold select-none">Device Management</h1>
+        <h1 className="page-header select-none">Device Management</h1>
         <div className="w-full mt-4">
           <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
             <TabList>

@@ -1,53 +1,5 @@
-.react-tabs__tab--selected {
-  border: none;
-  border-bottom: 4px solid yellow;
-  color: yellow;
-  background: transparent !important;
-}
-
-.react-tabs__tab:focus::after {
-  background: transparent !important;
-}
-
-.react-tabs__tab {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  border-start-start-radius: 5px;
-  border-start-end-radius: 5px;
-  padding: 1rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-.react-tabs__tab-list {
-  display: flex;
-  flex-direction: row;
-  border-bottom: 3px solid #0f172b;
-}
-
-.react-tabs__tab:hover {
-  background-color: #0f172b;
-}
-
 @media (max-width: 500px) {
-  .component-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 24px;
-    padding-top: 16px;
-  }
 
-  .page-header {
-    font-size: 24px;
-    line-height: 32px;
-  }
 
   .client-card {
     display: flex;
@@ -102,21 +54,7 @@
 }
 
 @media (min-width: 768px) {
-  .component-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 24px;
-    padding-top: 16px;
-  }
 
-  .page-header {
-    font-size: 24px;
-    line-height: 32px;
-  }
 
   .client-card {
     display: flex;
@@ -167,21 +105,7 @@
 }
 
 @media (min-width: 1024px) {
-  .component-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 24px;
-    padding-top: 16px;
-  }
 
-  .page-header {
-    font-size: 24px;
-    line-height: 32px;
-  }
 
   .client-card {
     display: flex;
@@ -228,21 +152,7 @@
 }
 
 @media (min-width: 1536px) {
-  .component-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 24px;
-    padding-top: 16px;
-  }
 
-  .page-header {
-    font-size: 24px;
-    line-height: 32px;
-  }
 
   .client-card {
     display: flex;
@@ -289,21 +199,7 @@
 }
 
 @media (min-width: 2500px) {
-  .component-body {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 24px;
-    padding-top: 16px;
-  }
 
-  .page-header {
-    font-size: 24px;
-    line-height: 32px;
-  }
 
   .client-card {
     display: flex;

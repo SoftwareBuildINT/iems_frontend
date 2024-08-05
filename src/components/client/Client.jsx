@@ -115,7 +115,7 @@ const Client = () => {
     <div className="component-body">
       <div className="client-body">
         <div>
-          <h1 className="page-header">Client Management</h1>
+          <h1 className="page-header select-none">Client Management</h1>
           <h4 className="text-xs md:text-sm pt-1">Client List /</h4>
         </div>
         <div className="client-utility">

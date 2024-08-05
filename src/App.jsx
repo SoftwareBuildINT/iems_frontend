@@ -4,8 +4,9 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Client from "./components/client/Client";
 import ClientDetails from "./components/client/ClientDetails";
 import CreateClient from "./components/client/CreateClient";
-import EditClient from "./components/client/EditClient"; // Import EditClient
+import EditClient from "./components/client/EditClient";
 import Alert from "./components/alert/Alert";
+import Alert1 from "./components/alert/Alert1";
 import Devicelist from "./components/device/Devicelist";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Location from "./components/location/Location";
@@ -27,7 +28,7 @@ export default function App() {
           <Route path="client" element={<Client />} />
           <Route path="client-details/:clientId" element={<ClientDetails />} />
           <Route path="create-client" element={<CreateClient />} />
-          <Route path="edit-client/:clientId" element={<EditClient />} /> {/* Add the route */}
+          <Route path="edit-client/:clientId" element={<EditClient />} />
           <Route path="alert" element={<Alert />} />
           <Route path="device-list" element={<Devicelist />} />
           <Route path="location" element={<Location />} />
