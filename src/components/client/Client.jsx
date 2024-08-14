@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoFilter } from "react-icons/io5";
 import { FaEllipsisV, FaTrash, FaPencilAlt } from "react-icons/fa";
-import useClickAway from "./hooks/useClickAway";
+import useClickAway from "../hooks/useClickAway";
 import "./client.css";
 import "../../assets/styles/common.css";
 

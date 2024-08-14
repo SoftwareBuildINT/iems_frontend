@@ -1,0 +1,21 @@
+.button:hover {
+  background-color: #19223F;
+}
+
+.content > * {
+  border-bottom: solid 1px rgb(255 255 255 / 0.2);
+  padding: 2px 0;
+  cursor: pointer;
+}
+
+.content :last-child {
+  border-bottom: none;
+}
+
+.content > *:hover {
+  background-color: #19223F;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}

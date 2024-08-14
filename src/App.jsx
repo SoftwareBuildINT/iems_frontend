@@ -6,11 +6,10 @@ import ClientDetails from "./components/client/ClientDetails";
 import CreateClient from "./components/client/CreateClient";
 import EditClient from "./components/client/EditClient";
 import Alert from "./components/alert/Alert";
-import Alert1 from "./components/alert/Alert1";
 import Devicelist from "./components/device/Devicelist";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Location from "./components/location/Location";
-import LocationDetails from "./components/location/LocationDetails"
+import LocationDetails from "./components/location/LocationDetails";
 import CreateLocation from "./components/location/CreateLocation";
 import AddDevice from "./components/device/AddDevice";
 
@@ -26,7 +25,7 @@ export default function App() {
           path="/"
           element={<Navbar bgColor={bgColor} textColor={textColor} />}
         >
-          <Route index element={<Dashboard title = "Dashboard"/>} />
+          <Route index element={<Dashboard title="Dashboard" />} />
           <Route path="client" element={<Client />} />
           <Route path="client-details/:clientId" element={<ClientDetails />} />
           <Route path="create-client" element={<CreateClient />} />
@@ -34,9 +33,12 @@ export default function App() {
           <Route path="alert" element={<Alert />} />
           <Route path="device-list" element={<Devicelist />} />
           <Route path="location" element={<Location />} />
-          <Route path="Location-details/:locationId" element={<LocationDetails />} />
+          <Route
+            path="Location-details/:locationId"
+            element={<LocationDetails />}
+          />
           <Route path="create-location" element={<CreateLocation />} />
-          <Route path="add-device" element={<AddDevice/ >} />
+          <Route path="add-device" element={<AddDevice />} />
         </Route>
       </Routes>
     </Router>
