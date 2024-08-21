@@ -1,12 +1,32 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEllipsisV, FaTrash, FaPencilAlt } from "react-icons/fa";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { TfiControlSkipForward, TfiControlSkipBackward } from "react-icons/tfi";
+import Dropdown from "../Dropdown/Dropdown";
 
 const TableComponent = ({ clients }) => {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedClient, setSelectedClient] = useState(null);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handleItemsPerPageChange = (value) => {
+    setItemsPerPage(parseInt(value));
+    setCurrentPage(1);
+  };
+
+  // const filteredAlerts = selectedStatus
+  //   ? alerts.filter((alert) => alert.status === selectedStatus)
+  //   : alerts;
+  const filteredAlerts = clients;
+
+  const paginatedAlerts = filteredAlerts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   const handleRowClick = (clientId) => {
     navigate(`/client-details/${clientId}`);
@@ -36,25 +56,39 @@ const TableComponent = ({ clients }) => {
 
   return (
     <>
-      <div className="flex-1 overflow-y-auto p-3 w-full">
+      <div className="flex-1 overflow-y-auto pt-2 w-full">
         <div className="overflow-x-auto">
           <table className="table-auto w-full min-w-full">
-            <thead className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#19223F]">
+            <thead className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#0f172b]">
               <tr>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">Client Name</th>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">Client ID</th>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">No. of Locations</th>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">Contact Number</th>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">E-mail ID</th>
-                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">Status</th>
+                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">
+                  Device Id
+                </th>
+                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">
+                  DID
+                </th>
+                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">
+                  Location
+                </th>
+                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">
+                  Contact Number
+                </th>
+                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">
+                  E-mail ID
+                </th>
+                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">
+                  Organization
+                </th>
+                <th className="px-4 py-2 text-left text-xs md:text-sm lg:text-base">
+                  Status
+                </th>
               </tr>
             </thead>
             <tbody>
-              {clients.map((client, index) => (
+              {paginatedAlerts.map((client, index) => (
                 <tr
                   key={index}
                   className="text-xs md:text-sm lg:text-base border-b border-gray-600 cursor-pointer"
-                  onClick={() => handleRowClick(client.clientId)}
                 >
                   <td className="px-4 py-2 flex items-center">
                     <img
@@ -62,12 +96,13 @@ const TableComponent = ({ clients }) => {
                       alt="client avatar"
                       className="w-8 h-8 rounded-full mr-2"
                     />
-                    {client.clientName}
+                    {client.deviceId}
                   </td>
-                  <td className="px-4 py-2">{client.clientId}</td>
-                  <td className="px-4 py-2">{client.locations}</td>
+                  <td className="px-4 py-2">{client.locationId}</td>
+                  <td className="px-4 py-2">{client.address}</td>
                   <td className="px-4 py-2">{client.contact}</td>
                   <td className="px-4 py-2">{client.email}</td>
+                  <td className="px-4 py-2">{client.org}</td>
                   <td className="px-4 py-2 relative flex items-center">
                     {client.status}
                     <FaEllipsisV
@@ -75,15 +110,18 @@ const TableComponent = ({ clients }) => {
                       onClick={(e) => toggleDropdown(index, e)}
                     />
                     {dropdownOpen === index && (
-                      <div className="absolute right-0 mt-2 w-32 bg-[#001f3f] rounded-md shadow-lg z-10" onClick={(e) => e.stopPropagation()}>
+                      <div
+                        className="absolute right-0 mt-2 w-32 bg-[#0f172b] rounded-md shadow-lg z-10"
+                        onClick={(e) => e.stopPropagation()}
+                      >
                         <div
-                          className="flex items-center justify-between py-2 px-4 hover:bg-blue-500 cursor-pointer rounded-md"
+                          className="flex items-center justify-between py-2 px-4 hover:bg-[#1a253f] cursor-pointer rounded-md"
                           onClick={(e) => handleEdit(client.clientId, e)}
                         >
                           Edit <FaPencilAlt className="ml-2 cursor-pointer" />
                         </div>
                         <div
-                          className="flex items-center justify-between py-2 px-4 hover:bg-blue-500 cursor-pointer rounded-md"
+                          className="flex items-center justify-between py-2 px-4 hover:bg-[#1a253f] cursor-pointer rounded-md"
                           onClick={(e) => handleDelete(client.clientId, e)}
                         >
                           Delete <FaTrash className="ml-2" />
@@ -94,15 +132,65 @@ const TableComponent = ({ clients }) => {
                 </tr>
               ))}
             </tbody>
-            <tfoot className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#19223F]">
+            <tfoot className="alert-table-footer border-spacing-x-5 border-spacing-y-2">
               <tr>
-                <td colSpan="6" className="p-2">
+                <td colSpan="4" className="p-3 pl-4 pr-4">
+                  <div className="flex gap-4 items-center">
+                    Items per page
+                    <div className="flex items-center">
+                      <Dropdown
+                        header={`${itemsPerPage}`}
+                        values={[5, 10, 25, 50]}
+                        containerWidth="70px"
+                        bgColor="#0f172b"
+                        onChange={handleItemsPerPageChange}
+                        dropDirection={"-290%"}
+                        dropBorder={"1px solid"}
+                      />
+                    </div>
+                  </div>
+                </td>
+                <td colSpan="2" className="p-3 pl-4 pr-4">
                   <div className="flex justify-end">
+                    Page {currentPage} of{" "}
+                    {Math.ceil(filteredAlerts.length / itemsPerPage)}
+                  </div>
+                </td>
+                <td colSpan="1" className="p-3 pl-4 pr-4">
+                  <div className="flex justify-between ">
                     <button
-                      className="font-bold px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg"
-                      onClick={() => navigate('/add-device')}
+                      onClick={() => setCurrentPage(1)}
+                      disabled={currentPage === 1}
                     >
-                      + Add Device
+                      <TfiControlSkipBackward />
+                    </button>
+                    <button
+                      onClick={() => setCurrentPage(currentPage - 1)}
+                      disabled={currentPage === 1}
+                    >
+                      <IoIosArrowBack />
+                    </button>
+                    <button
+                      onClick={() => setCurrentPage(currentPage + 1)}
+                      disabled={
+                        currentPage ===
+                        Math.ceil(filteredAlerts.length / itemsPerPage)
+                      }
+                    >
+                      <IoIosArrowForward />
+                    </button>
+                    <button
+                      onClick={() =>
+                        setCurrentPage(
+                          Math.ceil(filteredAlerts.length / itemsPerPage)
+                        )
+                      }
+                      disabled={
+                        currentPage ===
+                        Math.ceil(filteredAlerts.length / itemsPerPage)
+                      }
+                    >
+                      <TfiControlSkipForward />
                     </button>
                   </div>
                 </td>

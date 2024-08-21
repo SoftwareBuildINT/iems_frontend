@@ -15,8 +15,7 @@ const EditDevice = () => {
   });
 
   useEffect(() => {
-    // Fetch the client details based on clientId
-    // Replace with your API call
+    // API call
     const fetchClient = async () => {
       const response = await fetch(`/api/clients/${clientId}`);
       const data = await response.json();

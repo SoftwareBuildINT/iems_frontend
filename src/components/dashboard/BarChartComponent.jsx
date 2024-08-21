@@ -2,6 +2,7 @@
 import React from "react";
 import ReactEcharts from "echarts-for-react";
 import EnergySavingsChart from "./EnergySavingsChart";
+import CarbonChart from "./CarbonfootprintChart";
 import "./chart.css";
 
 const BarChartComponent = () => {
@@ -176,7 +177,7 @@ const BarChartComponent = () => {
           <EnergySavingsChart />
         </div>
         <div className="right-chart-2">
-          <EnergySavingsChart />
+          <CarbonChart />
         </div>
       </div>
     </div>

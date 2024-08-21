@@ -487,7 +487,7 @@ const Alert = () => {
 
       <div className="alert-table-container">
         <div className="overflow-x-auto">
-          <table className="alert-table-body rounded-xl ">
+          <table className="alert-table-body rounded-xl">
             <thead className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#0f172b] ">
               <tr>
                 <th className="alert-table-header flex">
@@ -512,7 +512,7 @@ const Alert = () => {
             </thead>
             <tbody>
               {paginatedAlerts.map((client, index) => (
-                <tr key={index} className="alert-table-row text">
+                <tr key={index} className="alert-table-row">
                   <td className="alert-table-cell">
                     <input
                       type="checkbox"

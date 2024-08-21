@@ -1,3 +1,13 @@
+.alert-table-footer {
+  height: 40px;
+  background: #0f172b;
+}
+
+.table-cell-padding {
+  padding: 8px 16px;
+}
+
+
 @media (min-width: 300px) {
   .card-container {
     gap: 10px;
@@ -138,38 +148,4 @@
     font-size: 30px;
     line-height: 32px;
   }
-}
-
-.react-tabs__tab--selected {
-  border: none;
-  border-bottom: 4px solid yellow;
-  color: yellow;
-  background: transparent !important;
-}
-
-.react-tabs__tab:focus::after {
-  background: transparent !important;
-}
-
-.react-tabs__tab {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  border-start-start-radius: 5px;
-  border-start-end-radius: 5px;
-  padding: 1rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-.react-tabs__tab-list {
-  display: flex;
-  flex-direction: row;
-  border-bottom: 3px solid #0f172b;
-}
-
-.react-tabs__tab:hover {
-  background-color: #0f172b;
 }

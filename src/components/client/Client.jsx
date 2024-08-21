@@ -14,7 +14,7 @@ const Client = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef(null);
-  
+
   const options = [
     { value: "active", label: "Active" },
     { value: "inactive", label: "Inactive" },
@@ -50,7 +50,7 @@ const Client = () => {
     },
     {
       clientName: "UNION Bank",
-      clientId: "SB26621F62",
+      clientId: "SB26621F63",
       locations: "066",
       contact: "9092347820",
       email: "arunram12@gmail.com",
@@ -58,7 +58,7 @@ const Client = () => {
     },
     {
       clientName: "HDFC Bank",
-      clientId: "SB26621F62",
+      clientId: "SB26621F64",
       locations: "066",
       contact: "9092347820",
       email: "arunram12@gmail.com",
@@ -66,7 +66,7 @@ const Client = () => {
     },
     {
       clientName: "SBI Bank",
-      clientId: "SB26621F62",
+      clientId: "SB26621F65",
       locations: "066",
       contact: "9092347820",
       email: "arunram12@gmail.com",
@@ -74,13 +74,12 @@ const Client = () => {
     },
     {
       clientName: "Hitachi Payment Services",
-      clientId: "SB26621F62",
+      clientId: "SB26621F66",
       locations: "066",
       contact: "9092347820",
       email: "arunram12@gmail.com",
       status: "Active",
     },
-    // Add more clients as needed
   ];
 
   const handleRowClick = (clientId) => {
@@ -173,7 +172,7 @@ const Client = () => {
       <div className="client-table-container">
         <div className="overflow-x-auto">
           <table className="client-table-body">
-            <thead className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#0f172b]">
+            <thead className="border-separate border-spacing-x-5 border-spacing-y-2 bg-[#0f172b] select-none">
               <tr>
                 <th className="client-table-header">Client Name</th>
                 <th className="client-table-header">Client ID</th>
@@ -185,12 +184,11 @@ const Client = () => {
             </thead>
             <tbody>
               {clients.map((client, index) => (
-                <tr
-                  key={index}
-                  className="client-table-row text"
-                  onClick={() => handleRowClick(client.clientId)}
-                >
-                  <td className="client-table-cell flex items-center">
+                <tr key={index} className="client-table-row text">
+                  <td
+                    className="client-table-cell flex items-center"
+                    onClick={() => handleRowClick(client.clientId)}
+                  >
                     <img
                       src={`https://via.placeholder.com/30`}
                       alt="client avatar"
@@ -235,7 +233,7 @@ const Client = () => {
                 </tr>
               ))}
             </tbody>
-            <tfoot className="client-table-footer border-spacing-x-5 border-spacing-y-2">
+            <tfoot className="client-table-footer border-spacing-x-5 border-spacing-y-2 select-none">
               <tr>
                 <td colSpan="6" className="p-2">
                   <div className="flex justify-end">

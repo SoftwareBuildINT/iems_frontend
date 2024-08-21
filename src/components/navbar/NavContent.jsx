@@ -75,7 +75,7 @@ export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
                             handleNavigation(route.href);
                           }
                         }}
-                        className="flex items-center justify-between w-full rounded-xl p-3 bg-transparent border-none cursor-pointer"
+                        className=" flex items-center justify-between w-full rounded-xl p-3 bg-transparent border-none cursor-pointer"
                       >
                         <div className="flex items-center gap-3 justify-start">
                           <Icon
@@ -134,15 +134,15 @@ export const NavContent = ({ bgColor, textColor, isOpen, setOpen }) => {
                                 className="flex items-center justify-start w-full p-3 gap-3 rounded-xl bg-transparent border-none cursor-pointer"
                               >
                                 <subRoute.Icon
-                                  className={`nav-icon${
+                                  className={`nav-icon ${
                                     isSubActive ? "text-[#E6FC5F]" : ""
                                   } select-none`}
                                 />
                                 <span
-                                  className={`flex gap-1 nav-label${
+                                  className={`flex gap-1 nav-label ${
                                     isSubActive ? "text-[#E6FC5F]" : ""
                                   } select-none`}
-                                  style={{ color: textColor }}
+                                  style={{ color: !isSubActive ? textColor : "" }}
                                 >
                                   {subRoute.title}
                                 </span>

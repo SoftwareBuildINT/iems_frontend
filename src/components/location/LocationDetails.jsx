@@ -5,7 +5,7 @@ import "react-tabs/style/react-tabs.css";
 import Dashboard from "../dashboard/Dashboard";
 import "./location.css";
 import LocationStats from "./LocationStats";
-import LineChart from "./LineChart"
+import LineChart from "./LineChart";
 
 const LocationDetails = () => {
   const { clientId } = useParams();
@@ -17,41 +17,23 @@ const LocationDetails = () => {
         <h1>Location Details</h1>
       </div>
       <div className="client-card">
-        <div className="item-container">
+        <div className="location-item-container">
           <div className="card-item">
-            <img
-              src="../src/assets/img/diebold.jpg"
-              alt="Logo"
-              className="client-image"
-            />
+            <span>Location ID</span>
+            <span className="font-bold pt-2">P1DCMU27</span>
             <div className="divider-line"></div>
           </div>
           <div className="card-item">
-            <span>Location Name</span>
+            <span>Location</span>
             <span className="font-bold pt-2">Thane</span>
             <div className="divider-line"></div>
           </div>
-          <div className="card-item">
-            <span>Location ID</span>
-            <span className="font-bold pt-2">LOCID1</span>
+          <div className="card-item hidden-1">
+            <span>Last Data Recieved</span>
+            <span className="font-bold pt-2">(19-08-2024 12:27:28)</span>
             <div className="divider-line"></div>
           </div>
           <div className="card-item hidden-1">
-            <span>Contact Person</span>
-            <span className="font-bold pt-2">Khilesh</span>
-            <div className="divider-line"></div>
-          </div>
-          <div className="card-item hidden-1">
-            <span>Contact Number</span>
-            <span className="font-bold pt-2">+91 9773336701</span>
-            <div className="divider-line"></div>
-          </div>
-          <div className="card-item hidden">
-            <span>Created Date</span>
-            <span className="font-bold pt-2">29 July 2024</span>
-            <div className="divider-line"></div>
-          </div>
-          <div className="card-item">
             <span>Status</span>
             <span className="font-bold pt-2">Active</span>
           </div>
@@ -64,18 +46,13 @@ const LocationDetails = () => {
           <TabList>
             <Tab>Statistics</Tab>
             <Tab>Control</Tab>
-            <Tab>User</Tab>
           </TabList>
-          <TabPanel >
-          <LocationStats />
+          <TabPanel>
+            <LocationStats />
           </TabPanel>
           <TabPanel>
             <h2>Location Content</h2>
             <p>Details about the client's locations go here.</p>
-          </TabPanel>
-          <TabPanel>
-            <h2>User Content</h2>
-            <p>Details about the client's users go here.</p>
           </TabPanel>
         </Tabs>
       </div>

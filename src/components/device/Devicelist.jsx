@@ -2,40 +2,72 @@ import React, { useState } from "react";
 import "./device.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import TableComponent from "./TableComponent"; // Adjust the path as needed
+import TableComponent from "./TableComponent";
 
 const Devicelist = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
   const clients = [
     {
-      clientName: "ICICI Bank",
-      clientId: "SB26621F62",
-      locations: "066",
+      deviceId: "ICICI Bank", 
+      locationId: "SB26621F62",
+      address: "066",
       contact: "9092347820",
       email: "arunram12@gmail.com",
+      org: "Diebold",
       status: "Active",
       category: "i-ATM",
     },
     {
-      clientName: "UNION Bank",
-      clientId: "SB26621F62",
-      locations: "066",
+      deviceId: "UNION Bank",
+      locationId: "SB26621F62",
+      address: "066",
       contact: "9092347820",
       email: "arunram12@gmail.com",
+      org: "Diebold",
       status: "Active",
       category: "Piazza",
     },
     {
-      clientName: "UNION Bank",
-      clientId: "SB26621F62",
-      locations: "066",
+      deviceId: "UNION Bank",
+      locationId: "SB26621F62",
+      address: "066",
       contact: "9092347820",
       email: "arunram12@gmail.com",
+      org: "Diebold",
       status: "Active",
       category: "iZion",
     },
-    // Add more clients as needed
+    {
+      deviceId: "UNION Bank",
+      locationId: "SB26621F62",
+      address: "066",
+      contact: "9092347820",
+      email: "arunram12@gmail.com",
+      org: "Diebold",
+      status: "Active",
+      category: "iZion",
+    },
+    {
+      deviceId: "UNION Bank",
+      locationId: "SB26621F62",
+      address: "066",
+      contact: "9092347820",
+      email: "arunram12@gmail.com",
+      org: "Diebold",
+      status: "Active",
+      category: "iZion",
+    },
+    {
+      deviceId: "UNION Bank",
+      locationId: "SB26621F62",
+      address: "066",
+      contact: "9092347820",
+      email: "arunram12@gmail.com",
+      org: "Diebold",
+      status: "Active",
+      category: "Piazza",
+    },
   ];
 
   return (

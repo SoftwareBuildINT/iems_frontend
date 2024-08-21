@@ -47,7 +47,7 @@ const LocationStats = () => {
                     legendData={['Email', 'Union Ads', 'Video Ads']}
                     xAxisData={['Mon', 'Tue', 'Wed', 'Thu', 'Fri']}
                     seriesData={[
-                        { name: 'AC-1', data: [120, 132, 101, 134, 90] },
+                        { name: 'AC-1', data: [100, 500, 201, 134, 90] },
                         { name: 'AC-2', data: [220, 182, 191, 234, 290] },
                         { name: 'Signage', data: [150, 232, 201, 154, 190] }
                     ]}
