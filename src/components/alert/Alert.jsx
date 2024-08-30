@@ -300,6 +300,10 @@ const Alert = () => {
   const [isHeaderChecked, setIsHeaderChecked] = useState(false);
   const [itemsPerPage, setItemsPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isAlertTypeDropdownOpen, setIsAlertTypeDropdownOpen] = useState(false);
+  const [isStatusDropdownOpen, setIsStatusDropdownOpen] = useState(false);
+  const [selectedAlertType, setSelectedAlertType] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("");
   const alertTypeRef = useRef(null);
   const statusRef = useRef(null);
 
@@ -321,13 +325,6 @@ const Alert = () => {
     setItemsPerPage(parseInt(value));
     setCurrentPage(1);
   };
-
-  // State for managing dropdown
-  const [isAlertTypeDropdownOpen, setIsAlertTypeDropdownOpen] = useState(false);
-  const [isStatusDropdownOpen, setIsStatusDropdownOpen] = useState(false);
-
-  const [selectedAlertType, setSelectedAlertType] = useState("");
-  const [selectedStatus, setSelectedStatus] = useState("");
 
   const handleAlertTypeSelection = (type) => {
     setSelectedAlertType(type);
@@ -577,17 +574,21 @@ const Alert = () => {
                     <button
                       onClick={() => setCurrentPage(currentPage + 1)}
                       disabled={
-                        currentPage === Math.ceil(filteredAlerts.length / itemsPerPage)
+                        currentPage ===
+                        Math.ceil(filteredAlerts.length / itemsPerPage)
                       }
                     >
                       <IoIosArrowForward />
                     </button>
                     <button
                       onClick={() =>
-                        setCurrentPage(Math.ceil(filteredAlerts.length / itemsPerPage))
+                        setCurrentPage(
+                          Math.ceil(filteredAlerts.length / itemsPerPage)
+                        )
                       }
                       disabled={
-                        currentPage === Math.ceil(filteredAlerts.length / itemsPerPage)
+                        currentPage ===
+                        Math.ceil(filteredAlerts.length / itemsPerPage)
                       }
                     >
                       <TfiControlSkipForward />

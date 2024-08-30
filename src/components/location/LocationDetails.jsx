@@ -5,7 +5,7 @@ import "react-tabs/style/react-tabs.css";
 import Dashboard from "../dashboard/Dashboard";
 import "./location.css";
 import LocationStats from "./LocationStats";
-import LineChart from "./LineChart";
+import LineChart from "./LineChartComponent";
 
 const LocationDetails = () => {
   const { clientId } = useParams();
@@ -23,12 +23,12 @@ const LocationDetails = () => {
             <span className="font-bold pt-2">P1DCMU27</span>
             <div className="divider-line"></div>
           </div>
-          <div className="card-item">
+          <div className="card-item hidden-1">
             <span>Location</span>
             <span className="font-bold pt-2">Thane</span>
             <div className="divider-line"></div>
           </div>
-          <div className="card-item hidden-1">
+          <div className="card-item">
             <span>Last Data Recieved</span>
             <span className="font-bold pt-2">(19-08-2024 12:27:28)</span>
             <div className="divider-line"></div>

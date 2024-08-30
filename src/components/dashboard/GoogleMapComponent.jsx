@@ -1,5 +1,11 @@
-import React from "react";
-import { GoogleMap, LoadScript, Marker, useLoadScript } from "@react-google-maps/api";
+import React, { useEffect, useState } from "react";
+import { MdLocationPin } from "react-icons/md";
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  useLoadScript,
+} from "@react-google-maps/api";
 
 const containerStyle = {
   width: "100%",
@@ -21,10 +27,7 @@ const mapStyles = [
   {
     featureType: "all",
     elementType: "labels.text.stroke",
-    stylers: [
-      { color: "#000000" },
-      { lightness: 1 },
-    ],
+    stylers: [{ color: "#000000" }, { lightness: 1 }],
   },
   {
     featureType: "administrative",
@@ -34,11 +37,7 @@ const mapStyles = [
   {
     featureType: "administrative",
     elementType: "geometry.stroke",
-    stylers: [
-      { color: "#44444F" },
-      { lightness: 14 },
-      { weight: 1.4 },
-    ],
+    stylers: [{ color: "#44444F" }, { lightness: 14 }, { weight: 1.4 }],
   },
   {
     featureType: "landscape",
@@ -77,16 +76,33 @@ const mapStyles = [
   },
 ];
 
-const markers = [
-  { position: { lat: 19.0760, lng: 72.8777 }, title: 'Inactive', color: 'red' }, // Mumbai
-  { position: { lat: 13.0827, lng: 80.2707 }, title: 'Hold', color: 'yellow' }, // Chennai
-  { position: { lat: 28.7041, lng: 77.1025 }, title: 'Active', color: 'green' }, // Delhi
-];
-
 const GoogleMapComponent = () => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyAhTi2QnPDnfAzb4lLXtndGBnA0ancqU0g"
+    googleMapsApiKey: "AIzaSyAhTi2QnPDnfAzb4lLXtndGBnA0ancqU0g",
   });
+
+  const [mapReady, setMapReady] = useState(false);
+  const [locations, setLocations] = useState([]);
+
+  useEffect(() => {
+    if (isLoaded && window.google) {
+      setMapReady(true);
+    }
+  }, [isLoaded]);
+
+  useEffect(() => {
+    const fetchLocations = async () => {
+      try {
+        const response = await fetch("http://localhost:3005/sites");
+        const data = await response.json();
+        setLocations(data);
+      } catch (error) {
+        console.error("Error fetching locations:", error);
+      }
+    };
+
+    fetchLocations();
+  }, []);
 
   if (!isLoaded) return <div>Loading...</div>;
 
@@ -97,20 +113,50 @@ const GoogleMapComponent = () => {
       zoom={4}
       options={{ styles: mapStyles }}
     >
-      {markers.map((marker, index) => (
-        <Marker
-          key={index}
-          position={marker.position}
-          title={marker.title}
-          icon={{
-            path: window.google.maps.SymbolPath.CIRCLE,
-            scale: 8,
-            fillColor: marker.color,
-            fillOpacity: 1,
-            strokeWeight: 0,
-          }}
-        />
-      ))}
+      {mapReady &&
+        locations.map((location, index) => {
+          const imgUrl =
+            location.status === "Online"
+              ? "../src/assets/img/location/greenlocation.png"
+              : "../src/assets/img/location/redlocation.png";
+          return (
+            <>
+              {/* <Marker
+                key={index}
+                position={{
+                  lat: parseFloat(location.geo_lat),
+                  lng: parseFloat(location.geo_long),
+                }}
+                title={`${location.name} - ${location.status}`}
+                icon={{
+                  path: "M0-48c-9.4,0-17,7.6-17,17c0,6.6,4.8,12.1,11.3,16.6L0,0l5.7-14.4c6.5-4.5,11.3-10,11.3-16.6C17-40.4,9.4-48,0-48z",
+                  fillColor: location.status === "Online" ? "green" : "red",
+                  fillOpacity: 1,
+                  scale: 1,
+                  strokeWeight: 0,
+                }}
+              >
+                <MdLocationPin
+                  color={location.status === "Online" ? "green" : "red"}
+                  size={24}
+                />
+              </Marker> */}
+              <Marker
+                key={index}
+                position={{
+                  lat: parseFloat(location.latitude),
+                  lng: parseFloat(location.longitude),
+                }}
+                title={`${location.name} - ${location.status}`}
+                icon={{
+                  url: imgUrl,
+                  scaledSize: new window.google.maps.Size(20, 25),
+                  // scale: 5,
+                }}
+              />
+            </>
+          );
+        })}
     </GoogleMap>
   );
 };

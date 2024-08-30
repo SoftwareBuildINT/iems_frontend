@@ -1,3 +1,36 @@
+.status-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #0f172b;
+  border-radius: 8px;
+  padding: 16px;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 0px 8px -1px var(--tw-shadow-color),
+    0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.loader {
+  border: 6px solid #737b8d;
+  border-top: 6px solid #172547;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1.5s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 500px) {
   .client-card {
     display: flex;
@@ -13,7 +46,7 @@
 
   .location-item-container {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     width: 100%;
   }
@@ -66,7 +99,7 @@
 
   .location-item-container {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 6px;
     width: 100%;
   }
@@ -105,7 +138,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    height: 200px;
+    height: 150px;
     background: #0f172b;
     color: white;
     padding: 16px;
@@ -140,8 +173,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 15px;
+    line-height: 20px;
   }
 }
 
@@ -150,7 +183,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    height: 200px;
+    height: 180px;
     background: #0f172b;
     color: white;
     padding: 16px;
@@ -160,7 +193,7 @@
 
   .location-item-container {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 8px;
     width: 100%;
   }
@@ -205,7 +238,7 @@
 
   .location-item-container {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 8px;
     width: 100%;
   }
@@ -230,7 +263,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    font-size: 28px;
+    font-size: 22px;
     line-height: 30px;
   }
 }

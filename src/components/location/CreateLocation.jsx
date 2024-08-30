@@ -15,7 +15,7 @@ const CreateLocation = () => {
       <form className="w-full p-5">
         <div className="grid grid-cols-3 gap-4">
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-logo">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-logo">
               Upload Document
             </label>
             <input
@@ -36,7 +36,7 @@ const CreateLocation = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-status">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-status">
               Branch Code
             </label>
             <select
@@ -49,7 +49,7 @@ const CreateLocation = () => {
             </select>
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-name">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-name">
               Device Id <span className="text-red-500">*</span>
             </label>
             <input
@@ -60,7 +60,7 @@ const CreateLocation = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-type">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-type">
               Device Type <span className="text-red-500">*</span>
             </label>
             <select
@@ -73,7 +73,7 @@ const CreateLocation = () => {
             </select>
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-status">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-status">
               Client Name
             </label>
             <select
@@ -86,7 +86,7 @@ const CreateLocation = () => {
             </select>
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-id">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-id">
               MSE Name
             </label>
             <input
@@ -97,7 +97,7 @@ const CreateLocation = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-id">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-id">
               Rate Per Unit
             </label>
             <input
@@ -108,7 +108,7 @@ const CreateLocation = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-status">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-status">
               Zone
             </label>
             <select
@@ -120,7 +120,7 @@ const CreateLocation = () => {
             </select>
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-status">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-status">
               Region
             </label>
             <select
@@ -133,7 +133,7 @@ const CreateLocation = () => {
             </select>
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-status">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-status">
               State
             </label>
             <select
@@ -146,7 +146,7 @@ const CreateLocation = () => {
             </select>
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-status">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-status">
               City
             </label>
             <select
@@ -159,7 +159,7 @@ const CreateLocation = () => {
             </select>
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-id">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-id">
               Phone Number
             </label>
             <input
@@ -170,7 +170,7 @@ const CreateLocation = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-id">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-id">
               SIM Number
             </label>
             <input
@@ -181,7 +181,7 @@ const CreateLocation = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-id">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-id">
               Latitude
             </label>
             <input
@@ -192,7 +192,7 @@ const CreateLocation = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="client-id">
+            <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="client-id">
               Longitude
             </label>
             <input

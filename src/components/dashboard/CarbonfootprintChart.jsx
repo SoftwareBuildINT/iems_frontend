@@ -37,19 +37,16 @@ export default function CarbonChart() {
             <stop offset="100%" stopColor="#1AB517" stopOpacity={0.1} />
           </linearGradient>
         </defs>
-        {/* <CartesianGrid strokeDasharray="1 1" /> */}
-        {/* <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip /> */}
         <XAxis
           dataKey="name"
           tick={{ fill: "#8884d8", fontSize: 12, fontWeight: "bold" }}
           label={{
             value: "Year",
-            position: "insideBottomRight",
+            position: "insideBottom",
             offset: -5,
             fill: "#8884d8",
             fontSize: 14,
+            dy: -6,
           }}
         />
         <YAxis
@@ -60,6 +57,8 @@ export default function CarbonChart() {
             position: "insideLeft",
             fill: "#8884d8",
             fontSize: 14,
+            dy: 55,
+            dx: 6,
           }}
         />
         <Tooltip
@@ -70,6 +69,7 @@ export default function CarbonChart() {
           }}
           itemStyle={{ color: "#1AB517", fontWeight: "bold" }}
           labelStyle={{ color: "#8884d8", fontSize: 12, fontWeight: "bold" }}
+          // cursor={false}
         />
         <Area
           type="linear"
