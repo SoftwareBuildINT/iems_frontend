@@ -7,7 +7,7 @@ import BarChartComponent from "./BarChartComponent";
 import "./dashboard.css";
 import "../../assets/styles/common.css";
 
-const Dashboard1 = ({ title }) => {
+const Dashboard = ({ title }) => {
   const cards = [
     {
       label: "No. of Clients",
@@ -94,4 +94,4 @@ const Dashboard1 = ({ title }) => {
   );
 };
 
-export default Dashboard1;
+export default Dashboard;

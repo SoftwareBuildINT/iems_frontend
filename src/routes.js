@@ -4,10 +4,12 @@ import {
   MdOutlinePeopleAlt,
   MdOutlineAddLocationAlt,
   MdOutlineNotListedLocation,
+  MdGroups,
 } from "react-icons/md";
 import { LiaFileDownloadSolid } from "react-icons/lia";
 import { IoAlertCircleSharp } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
+// import { FaUser } from "react-icons/fa";
 
 export const routes = [
   {
@@ -23,7 +25,7 @@ export const routes = [
   {
     title: "Client Management",
     href: "/client",
-    Icon: MdOutlinePeopleAlt,
+    Icon: MdGroups,
   },
   {
     title: "Location",
@@ -40,6 +42,11 @@ export const routes = [
         Icon: MdOutlineNotListedLocation,
       },
     ],
+  },
+  {
+    title: "Users",
+    href: "/user",
+    Icon: MdOutlinePeopleAlt,
   },
   {
     title: "Alerts",

@@ -26,12 +26,12 @@ export default function App() {
           path="/"
           element={<Navbar bgColor={bgColor} textColor={textColor} />}
         >
-          {/* <Route index element={<Dashboard title="Dashboard" />} /> */}
-          <Route index element={<Users/>} />
+          <Route index element={<Dashboard title="Dashboard" />} />
           <Route path="client" element={<Client />} />
           <Route path="client-details/:clientId" element={<ClientDetails />} />
           <Route path="create-client" element={<CreateClient />} />
           <Route path="edit-client/:clientId" element={<EditClient />} />
+          <Route path="user" element={<Users />} />
           <Route path="alert" element={<Alert />} />
           <Route path="device-list" element={<Devicelist />} />
           <Route path="location" element={<Location />} />

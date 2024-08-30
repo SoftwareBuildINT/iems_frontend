@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { MdLocationPin } from "react-icons/md";
 import {
   GoogleMap,
-  LoadScript,
   Marker,
   useLoadScript,
 } from "@react-google-maps/api";
@@ -121,26 +119,6 @@ const GoogleMapComponent = () => {
               : "../src/assets/img/location/redlocation.png";
           return (
             <>
-              {/* <Marker
-                key={index}
-                position={{
-                  lat: parseFloat(location.geo_lat),
-                  lng: parseFloat(location.geo_long),
-                }}
-                title={`${location.name} - ${location.status}`}
-                icon={{
-                  path: "M0-48c-9.4,0-17,7.6-17,17c0,6.6,4.8,12.1,11.3,16.6L0,0l5.7-14.4c6.5-4.5,11.3-10,11.3-16.6C17-40.4,9.4-48,0-48z",
-                  fillColor: location.status === "Online" ? "green" : "red",
-                  fillOpacity: 1,
-                  scale: 1,
-                  strokeWeight: 0,
-                }}
-              >
-                <MdLocationPin
-                  color={location.status === "Online" ? "green" : "red"}
-                  size={24}
-                />
-              </Marker> */}
               <Marker
                 key={index}
                 position={{
@@ -151,7 +129,6 @@ const GoogleMapComponent = () => {
                 icon={{
                   url: imgUrl,
                   scaledSize: new window.google.maps.Size(20, 25),
-                  // scale: 5,
                 }}
               />
             </>
