@@ -12,6 +12,7 @@ import Location from "./components/location/Location";
 import LocationDetails from "./components/location/LocationDetails";
 import CreateLocation from "./components/location/CreateLocation";
 import AddDevice from "./components/device/AddDevice";
+import Users from "./components/user/Users";
 
 export default function App() {
   const bgColor = "#0F172B";
@@ -25,7 +26,8 @@ export default function App() {
           path="/"
           element={<Navbar bgColor={bgColor} textColor={textColor} />}
         >
-          <Route index element={<Dashboard title="Dashboard" />} />
+          {/* <Route index element={<Dashboard title="Dashboard" />} /> */}
+          <Route index element={<Users/>} />
           <Route path="client" element={<Client />} />
           <Route path="client-details/:clientId" element={<ClientDetails />} />
           <Route path="create-client" element={<CreateClient />} />
